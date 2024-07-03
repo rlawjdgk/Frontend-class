@@ -1,0 +1,25 @@
+1. 슬라이드
+- 배열 자료구조 
+- 싱글타입(*이미지 단일)
+- 난이도"하"
+- 화살표를 클릭, 슬라이드 교체
+
+- 무한 슬라이드 (*화살표를 클릭, 마지막 슬라이드 => 첫번째 슬라이드)
+
+- 자동 슬라이드 (*굳이 화살표를 클릭x, 알아서 슬라이드 교체)
+
+- 페이저 탑재 슬라이드 (*페이저를 클릭 했을 때, 슬라이드 이미지가 교체 + 슬라이드가 자동으로 페이지 교체 => 페이저도 자동으로 교체, 페이저 역시 무한으로 실행)
+
+- 멀티플타입 
+
+라이브러리
+> js > jQuery
+https://animejs.com/
+https://kenwheeler.github.io/slick/
+https://swiperjs.com/
+https://gsap.com/
+https://alvarotrigo.com/fullPage/
+https://noelboss.github.io/featherlight/
+
+h1 32px
+https://github.com/Divjason/EZEN-KDTFED-240616/blob/main/240630/flowwrap.zip

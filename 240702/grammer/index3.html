@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      p {
+        counter-increment: rint;
+      }
+      p::before {
+        content: counter(rint) ".";
+      }
+      p::after {
+        content: " - " attr(data-page) " page";
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Lorem Ipsum</h1>
+    <p data-page="52">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam expedita
+      eaque repellat porro totam maiores esse magni repudiandae doloremque illum
+      non neque vero voluptatum doloribus, nemo sequi dolore, asperiores odio.
+      Neque, deserunt quasi? Enim repudiandae minima beatae consectetur nemo
+      veritatis quo quaerat veniam voluptate eaque iure temporibus aperiam
+      cupiditate, iste assumenda iusto necessitatibus, recusandae fugit dolores
+      harum! Necessitatibus, officiis eius.
+    </p>
+    <p data-page="273">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere eveniet
+      temporibus quaerat molestias voluptas explicabo voluptatum quis
+      necessitatibus libero commodi, tempora ducimus non similique a nemo error
+      placeat impedit facilis. Laborum possimus, nulla maxime consectetur libero
+      mollitia facilis sequi ea adipisci minima omnis cupiditate quod. At porro
+      maiores ipsum animi unde eveniet corporis consequuntur, asperiores
+      corrupti incidunt quae dolorum ex. Inventore, quod itaque! Nulla ipsa eius
+      consequuntur dicta velit, enim iure ab voluptatibus, libero veritatis id
+      quas. Quia ad ducimus corporis laborum nemo distinctio commodi. Laboriosam
+      cupiditate laborum nihil eum. Non impedit laborum nisi exercitationem
+      quaerat quam aliquid eius architecto, quod minus dicta eveniet aliquam
+      magni quasi pariatur nulla mollitia! Debitis, architecto sit esse harum
+      distinctio nobis voluptate. Asperiores, obcaecati!
+    </p>
+  </body>
+</html>

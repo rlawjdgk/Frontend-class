@@ -1,0 +1,108 @@
+1.UI/UX 관련 내용=> 피그마 툴 / 단일 페이지 / UX 파일
+기획요소 
+
+2.html.css등 기초 문법 => 반응형 / 선택자 실습예제
+
+3.1시간 => 첫번째 프로젝트 준비 시간 
+
+lo-fi wireframe
+=> Low Fidelity(*품질 / 퀄리티)
+hi-fi 
+=> height
+
+전체너비: 375
+컨텐츠너비: 327
+좌.우측 패딩: 48 /2 = 24
+
+componnent > 
+
+Figma 핵심기능
+1. AutoLayout
+2. LayourGrid
+3. Component / instence
+4. Prototype
+5. Style Guide(Front / color)
+6. Plugin(iconify / feather icon / upsplash)
+
+1) cammel 표기법:
+contentTitle
+
+2) snaeck 표기법:
+content_title
+
+3) 헝가리언 표기법:
+ContentTitle
+
+<html5>
+
+* html: hyper text markup language
+
+* MDN
+
+* 속성 & 속성값
+
+* 주석
+
+* single tag vs multi tag: 열고 닫는 형식
+- a / img / br /hr 등
+
+
+1. h(n) 태그: heading 태그
+- h1~h6: h1 > h6
+- h1: 32px
+- 기본속성이 없는 태그
+- 단락에서 타이틀을 정의
+
+2. p 태그: paragraph 태그 //줄코딩으로 쓰지 않음
+- 문장을 입력하고자 할 때 
+- dummy  문장을 활용해서 임시로 문자열 입력
+ - lorem
+
+3. br 태그: break 태그
+- 줄바꿈 태그     //남발x
+
+4.hr 태그: Horizonatal Ruler 태그  
+
+5. a 태그: anchor 태그
+- 특정 요소를 어딘가로 이동 시켜주는 태그
+- 반드시 href와 같은 속성 / 속성값
+- 고유한 스타일 존재 => 초기 reset을 활용해서 제거!!!
+text-decoration: none;
+color: inherit;
+
+- 문서상에서 내부이동
+
+- 1개의 요소 안에서 복수의 링크를 설정
+
+
+
+target="_blank" //없으면 새페이지로 바꿔치기
+		있으면 페이지 냅두고 다른페이지로 펼쳐짐
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
