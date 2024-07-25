@@ -1,0 +1,20 @@
+fles-basis: 자식요소들에게 고정 너비값을 부여
+flex: flex-grow flex shrink 
+부모
+> display : flex
+
+복수 아이템
+-space-betwwen
+-space-
+
+margin/padding
+> 특정 도형 및 요소의 위치를 조정
+> target 하고 있는 도형 및 요소 주변 
+1) 결과값 도출: 1가지 정답
+
+> flex-wrap & flex-direction
+flex-Wrap & flex-direction 하나로 통합해서
+
+-center
+-flex-start
+

@@ -1,0 +1,460 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+body {
+  overflow-x: hidden;
+  background: #000;
+}
+
+/* header */
+header {
+  margin-top: 30px;
+  width: 100%;
+  height: 1000px;
+  background: url(./img/자산\ 2@4x\ 1.png) top center/1700px no-repeat;
+  #inner {
+    position: relative;
+    width: 1180px;
+    height: 120px;
+    margin: 0 auto;
+    color: #d59fff9a;
+    font: 50px/1 "Press Start 2P", system-ui;
+    -webkit-text-stroke: 1px #c597ff;
+    text-shadow: 5px 5px 10px rgb(20, 20, 20);
+    #lnb {
+      width: 100%;
+      height: 50px;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 50px;
+      a {
+        font-size: 16px;
+        color: #fff;
+        &:hover {
+          color: #bd4cff;
+        }
+      }
+    }
+  }
+  #introduce {
+    position: absolute;
+  }
+
+  #lnb a:hover {
+    color: #bd4cff;
+  }
+
+  #title {
+    position: absolute;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    h1 {
+      text-align: center;
+      padding: 190px;
+      top: 50%;
+      left: 18%;
+    }
+  }
+  #button {
+    position: absolute;
+    top: 740px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 240px;
+    height: 40px;
+    a {
+      text-align: center;
+      display: inline-block;
+      font-size: 20px;
+      color: #000;
+      border: 1px solid #fff;
+      background: #fff;
+      padding: 20px 16px;
+      border-radius: 20px;
+      box-shadow: 8px 8px 10px rgba(73, 73, 73, 0.4);
+      &:hover {
+        background: #000;
+        color: #fff;
+      }
+    }
+  }
+}
+
+/* desktop */
+/* introduce */
+#pic {
+  margin-top: 30px;
+  width: 100%;
+  height: 1000px;
+  background: url(./img/전체프레임.png) top center/1600px no-repeat;
+  #introduce {
+    position: relative;
+    width: 1180px;
+    height: 120px;
+    margin: 0 auto;
+    color: #d59fff9a;
+    font: 50px/1 "Press Start 2P", system-ui;
+    -webkit-text-stroke: 1px #c597ff;
+    text-shadow: 5px 5px 10px rgb(20, 20, 20);
+    #lnb {
+      width: 100%;
+      height: 50px;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 50px;
+      a {
+        font-size: 16px;
+        color: #fff;
+        &:hover {
+          color: #bd4cff;
+        }
+      }
+    }
+  }
+}
+.container {
+  display: flex;
+  position: absolute;
+  top: 1250px;
+  left: 50%;
+  bottom: 100%;
+  transform: translateX(-50%);
+  .header2 {
+    position: absolute;
+    font: 45px/3 "Press Start 2P", system-ui;
+    top: -100px;
+    color: #d59fff54;
+    -webkit-text-stroke: 3px #c597ff;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+  }
+  .proflie_info {
+    .proflie {
+      img {
+        position: relative;
+        top: 50px;
+        left: 500px;
+        width: 200px;
+      }
+    }
+  }
+
+  .box_group {
+    display: flex;
+    .top_box {
+      span {
+        display: flex;
+        position: relative;
+        top: 40px;
+        left: 450px;
+        .age {
+          position: relative;
+          color: #fff;
+          top: 44px;
+          right: 530px;
+          font-size: 26px;
+        }
+        .res {
+          position: absolute;
+          display: inline-block;
+          color: #fff;
+          left: 525px;
+          top: 55px;
+          font-size: 18px;
+        }
+      }
+    }
+    .bottom_box {
+      position: relative;
+      top: 80px;
+      span {
+        display: flex;
+        position: relative;
+        top: 140px;
+        right: 600px;
+        .mbti_bar {
+          position: absolute;
+          top: 90px;
+          width: 50%;
+          color: #fff;
+          padding: 50px;
+          border-radius: 10px;
+          h2 {
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 40px;
+          }
+          .program {
+            height: 38px;
+            .program-level {
+              height: 20px;
+              .number {
+                width: 100%;
+                font-size: 14px;
+              }
+            }
+          }
+        }
+        .per {
+          display: flex;
+          top: 200px;
+          span {
+            position: absolute;
+            display: inline-block;
+            width: 450px;
+            color: #fff;
+            left: 550px;
+          }
+        }
+      }
+    }
+  }
+
+  .item {
+    position: relative;
+    article {
+      margin-bottom: 5px;
+      &:first-child {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+    .program {
+      border: 1px solid #fff;
+      border-radius: 10px;
+      padding: 8px;
+      .program-level {
+        border-radius: 6px;
+        background: linear-gradient(to right, #b940ff, #c597ff);
+        animation: ani 1s;
+        animation-fill-mode: both;
+      }
+    }
+    &:nth-of-type(1)::before {
+      content: "I";
+      position: absolute;
+      top: 14px;
+      left: -20px;
+      font-weight: bold;
+    }
+    &:nth-of-type(1)::after {
+      content: "E";
+      position: absolute;
+      top: 14px;
+      right: -24px;
+      font-weight: bold;
+    }
+    &:nth-of-type(2)::before {
+      content: "N";
+      position: absolute;
+      top: 14px;
+      left: -20px;
+      font-weight: bold;
+    }
+    &:nth-of-type(2)::after {
+      content: "S";
+      position: absolute;
+      top: 14px;
+      right: -24px;
+      font-weight: bold;
+    }
+    &:nth-of-type(3)::before {
+      content: "T";
+      position: absolute;
+      top: 14px;
+      left: -20px;
+      font-weight: bold;
+    }
+    &:nth-of-type(3)::after {
+      content: "F";
+      position: absolute;
+      top: 14px;
+      right: -24px;
+      font-weight: bold;
+    }
+    &:nth-of-type(4)::before {
+      content: "J";
+      position: absolute;
+      top: 14px;
+      left: -20px;
+      font-weight: bold;
+    }
+    &:nth-of-type(4)::after {
+      content: "P";
+      position: absolute;
+      top: 14px;
+      right: -24px;
+      font-weight: bold;
+    }
+  }
+}
+
+#hobby {
+  margin-top: 30px;
+  width: 100%;
+  height: 1000px;
+  background: url(./img/전체프레임.png) top center/1600px no-repeat;
+  #lnb {
+    position: relative;
+    width: 1180px;
+    height: 120px;
+    margin: 0 auto;
+    color: #d59fff9a;
+    font: 50px/1 "Press Start 2P", system-ui;
+    -webkit-text-stroke: 1px #c597ff;
+    text-shadow: 5px 5px 10px rgb(20, 20, 20);
+    width: 100%;
+    height: 50px;
+    position: absolute;
+    top: 2100px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    a {
+      font-size: 16px;
+      color: #fff;
+      &:hover {
+        color: #bd4cff;
+      }
+    }
+  }
+}
+
+.container {
+  display: flex;
+  .hobby {
+    position: relative;
+    img {
+      position: relative;
+      width: 100%;
+      top: 1070px;
+      right: 400px;
+    }
+    & > .txt_box {
+      position: relative;
+      top: 1050px;
+      right: 340px;
+      cursor: pointer;
+      span {
+        width: 100%;
+        font-size: 20px;
+        color: #fff;
+        &:nth-child(1) {
+          border-radius: 8px;
+          padding: 2px;
+          background: #b940ff;
+        }
+      }
+    }
+  }
+}
+
+#introduce {
+  position: absolute;
+}
+
+#lnb a:hover {
+  color: #bd4cff;
+}
+
+.box {
+  text-align: center;
+  position: relative;
+  bottom: 660px;
+  left: 800px;
+  .player {
+    transform: translateX(-70px);
+    width: 800px;
+    display: flex;
+    img {
+      height: 270px;
+    }
+    p {
+      color: #fff;
+      font: 14px/1 "Press Start 2P", system-ui;
+      position: relative;
+      top: -236px;
+      right: -53px;
+      width: 50px;
+      height: 20px;
+      text-align: center;
+    }
+  }
+  .txt {
+    span {
+      position: relative;
+      color: #fff;
+      top: 0px;
+      left: -800px;
+      font-size: 20px;
+      width: 100%;
+    }
+  }
+}
+
+footer {
+  img {
+    width: 1914px;
+    height: 415px;
+    margin-top: 300px;
+    margin-left: -1600px;
+  }
+  .container {
+    color: #fff;
+    position: absolute;
+    padding: 100px;
+    left: 100px;
+    top: 70%;
+    gap: 20px;
+    transform: translate(-35%);
+    .inner {
+      span {
+        display: inline-block;
+        margin-bottom: 26px;
+        &:nth-of-type(1) {
+          font: 30px/1 "Press Start 2P", system-ui;
+        }
+        &:nth-of-type(2) {
+          font: 20px/1 "Press Start 2P", system-ui;
+        }
+        &:nth-of-type(3) {
+          font: 20px/1 "Press Start 2P", system-ui;
+        }
+        &:not(:nth-of-type(1)):hover {
+          color: #b940ff;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}

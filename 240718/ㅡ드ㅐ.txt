@@ -1,0 +1,62 @@
+grid-area: 시작하는 행 라인/시작하는 열 라인/ 종료하는 행 라인/종료하는 열 라인
+(*최종 완료된 박스 구조를 기준으로 라인을 찾아서 설정)
+
+grid-row: 각 아이템의 핸의 위치를 재정렬 가능(*행 중심으로 위치 변경)
+
+order: 각 아이템의 순서 및 위치를 재정렬 가능(*행에 국한되지 않고, 위치 변경)
+
+
+justify-content
+
+justify-items
+
+> justify: 수평 / 가로 암시 & 의미
+
+> content: 묶여있는 그룹 그 자체
+
+> item: 개별적인 요소
+
+display: flex
+justify-content: center
+
+> 자식요소는 무조건 반드시 부모요소의 플렉스박스 안에서 영향을 받을 수 밖에 없는 하나의 그룹
+
+> display: grid
+grid-template-column
+grid-template-row
+
+CSS: Cascading Style Sheet
+SCSS: Sassy Cascading Style sheet
+
+Nesting / if / for / 함수 / 변수 기타 등등
+
+웹 브라우저: html, css, js 
+
+complier 
+
+*SCSS
+1) Nesting: 부모 > 자식요소로 중천되어있는 스타일 시트
+2) Variables: 변수를 안하는 방법 $변수명 값 => 해당 변수명 바로 사용가능
+3) comments: css에 주석을 처리하는 방식과 일치하다
+4) @at-root부모요소 아래 있는 특정 요소의 스타일을 전역요소로 사용하고 싶은 경우: (얖 > h2 (*스타일)) +2 )
+5) @import 경로: 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

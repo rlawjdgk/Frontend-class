@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.parent {
+  border: 1px solid #000;
+  display: grid;
+  width: 1000px;
+  height: 300px;
+
+  div {
+    border: 1px solid #000;
+    &.item1 {
+      background: khaki;
+      grid-row: 1;
+    }
+    &.item2 {
+      background: khaki;
+      grid-row: 1;
+    }
+    &.item3 {
+      background: khaki;
+      grid-row: 1;
+    }
+    &.item4 {
+      background: khaki;
+      grid-row: 1;
+    }
+    &.item5 {
+      background: khaki;
+      grid-row: 1;
+    }
+    &.item6 {
+      background: khaki;
+      grid-row: 6;
+    }
+  }
+}

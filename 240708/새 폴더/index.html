@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 100px;
+        height: 100px;
+        background: orange;
+        /* -ms-transition-duration: 0.8s;
+        -moz-transition-duration: 0.8s;
+        -webkit-transition-duration: 0.8s;
+        transition-duration: 0.8s;
+        transition-timing-function: cubic-bezier(0.21, 0.72, 0.81, 0.42); */
+
+        transition: background 0.8s ease, width.5s ease-out 0.3s height 0.5s;
+        &:hover {
+          width: 200px;
+          height: 300px;
+        }
+        &:active {
+          background: crimson;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">box</div>
+  </body>
+</html>
