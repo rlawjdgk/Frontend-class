@@ -1,107 +1,128 @@
 /* wrapper */
 #wrapper {
-  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   padding: 30px;
+  position: relative;
   width: 100%;
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
   background: url(./img/Frame\ 1.jpg) center/cover no-repeat;
-  border: 3px solid red;
-  .image {
-    img {
-      border: 1px solid #f00;
-      width: 200px;
-      height: 200px;
-      position: absolute;
-      left: 0px;
-      top: 0px;
-    }
-    span {
-      color: #fff;
-      font: 16px;
-      font-weight: 700;
-      border: 1px solid #f00;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-  }
-  .box {
+  /* border: 3px solid red; */
+  & > div:first-child {
     /* border: 1px solid #f00; */
-    height: 100px;
-    width: 800px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* margin-top: 400px; */
-    margin-bottom: 400px;
-    input {
-      width: 420px;
-      height: 40px;
-      background: #000000be;
-    }
-    button {
-      border: none;
-      width: 160px;
-      height: 44px;
-      display: block;
-      margin-left: 20px;
-      border-radius: 10px;
-      font-size: 16px;
-      background: crimson;
-      cursor: pointer;
-      font-weight: 800;
-      transition: all 0.3s;
-      &:hover {
-        background: #000;
+    .image {
+      img {
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        /* border: 1px solid #f00; */
+        width: 200px;
+        height: 200px;
+      }
+      p {
+        /* border: 1px solid #f00; */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 25px;
+        font-weight: 700;
         color: #fff;
       }
+    }
+    .box {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 200px;
+      /* margin-top: 400px; */
+      /* flex-direction: column; */
+      position: relative;
+      width: 800px;
+      /* border: 1px solid #f00; */
+      height: 100px;
+      input {
+        width: 450px;
+        height: 60px;
+        background: #000000be;
+      }
+      button {
+        display: block;
+        margin-left: 20px;
+        border: none;
+        width: 160px;
+        height: 44px;
+        background: crimson;
+        font-size: 16px;
+        font-weight: 800;
+        transition: all 0.3s;
+        cursor: pointer;
+        border-radius: 10px;
+        &:hover {
+          background: #000;
+          color: #fff;
+        }
+      }
+    }
+    &.active {
+      display: none;
     }
   }
 }
 
 /* container */
 .container {
-  /* border: 1px solid #f00; */
-  width: 10px;
-  height: 64%;
-  padding: 20px;
-  background: #3f383875;
-  box-shadow: 2px 2px 2px #00000050;
-  display: none; /* after: flex */
-  justify-content: center;
+  display: none;
+  /* display: flex; */
   align-items: center;
+  justify-content: center;
   flex-direction: column;
   margin-top: 100px;
-}
-&.active {
-  display: flex;
+  padding: 60px;
+  box-shadow: 2px 2px 2px #00000050;
+  position: absolute;
+  background: #000000;
+  /* border: 1px solid #f00; */
+  width: 300px;
+  &.active {
+    display: flex;
+  }
 }
 
 /* header */
 header {
+  position: relative;
+  width: 100%;
+  .fa-x {
+    position: absolute;
+    top: -30px;
+    right: -35px;
+    color: #fff;
+    cursor: pointer;
+  }
   .tittle {
+    margin-right: 10px;
+    margin-bottom: 20px;
+    padding: 12px;
     font-size: 30px;
     font-weight: bold;
     color: #fff;
-    width: 115%;
-    padding: 12px;
-    margin: 30px;
+    /* width: 100%; */
+    text-align: center;
+    /* border: 1px solid #f00; */
   }
 }
 
 /* useremail */
 .useremail input[type="text"] {
-  font-size: 12px;
-  padding: 12px 45px;
-  background: #000;
-  color: #b3b3b3;
-  border: 1px solid #b3b3b3;
-  border-radius: 4px;
   margin-bottom: 10px;
+  padding: 12px 45px;
+  border: 1px solid #b3b3b3;
+  background: #000;
+  font-size: 12px;
+  color: #b3b3b3;
+  border-radius: 4px;
   &::placeholder {
     color: #b3b3b3;
   }
@@ -110,16 +131,16 @@ header {
 /* checkbox */
 .button {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  flex-direction: column;
   .loginbtn {
     input[type="submit"] {
+      margin-bottom: 10px;
+      border: crimson;
       width: 230px;
       height: 32px;
       background: crimson;
-      margin-bottom: 10px;
-      border: crimson;
       border-radius: 4px;
       &:hover {
         background: rgb(146, 13, 40);
@@ -129,12 +150,12 @@ header {
   }
   .QRbtn {
     input[type="submit"] {
+      display: flex;
+      border: #000;
       width: 230px;
       height: 34px;
       background: #000;
       color: #ffffffe3;
-      display: flex;
-      border: #000;
       border-radius: 4px;
       &:hover {
         background: #000000b6;
@@ -145,18 +166,18 @@ header {
   .logincheck {
     /* border: 1px solid #f00; */
     display: flex;
-    justify-content: center;
     align-items: center;
-    padding: 10px;
+    justify-content: center;
     margin-right: 10px;
+    padding: 10px;
     input[type="checkbox"] {
       width: 14px;
       height: 15px;
     }
     label {
-      color: #fff;
-      font-size: 14px;
       margin-left: 6px;
+      font-size: 14px;
+      color: #fff;
     }
   }
 }
@@ -166,8 +187,8 @@ header {
   margin-top: 30px;
   cursor: pointer;
   span {
-    color: #fff;
     font-size: 16px;
+    color: #fff;
     b {
       color: rgb(93, 174, 255);
       &:hover {
@@ -176,15 +197,40 @@ header {
     }
   }
   p {
-    color: #fff;
     font-size: 15px;
+    color: #fff;
   }
 }
 
-@media screen and (min-width: 360px) {
+@media screen and (max-width: 770px) {
+  #wrapper {
+    & > div:first-child {
+      /* border: 1px solid #f00; */
+      margin-right: 50px;
+      padding-top: 100px;
+      p {
+        /* border: solid #f00; */
+        /* font-size: 40px; */
+        /* width: 450px; */
+        /* margin-right: 30px; */
+        text-align: center;
+      }
+      .box {
+        gap: 20px;
+        flex-direction: column;
+        /* border: 1px solid #f00; */
+        margin-right: 50px;
+        width: 100%;
+        input {
+          /* border: 1px solid #f00; */
+          width: 400px;
+        }
+      }
+    }
+  }
   .container {
-    width: 300px;
-    height: 520px;
     margin-right: 22px;
+    width: 200px;
+    height: 520px;
   }
 }
