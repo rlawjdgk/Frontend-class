@@ -22,9 +22,26 @@ const select = document.querySelector("#fruits");
 // console.log(select.options[1].value);
 
 select.addEventListener("change", function () {
-  console.log(this.options);
   const selectedText = this.options[this.selectedIndex].innerText;
   alert(`${selectedText}를 선택하셨습니다 가격은 5,000원 입니다`);
 });
 
-const checkBox = document.querySelector("input[name='alarm']:checked");
+const radioBox = document.querySelectorAll("input[name='userAge']");
+radioBox.forEach((item) => {
+  item.addEventListener("change", (e) => {
+    const target = e.target;
+    if (target.checked) {
+      alert(`당신의 연령은 ${target.value}대 입니다`);
+    }
+  });
+});
+
+const checkBox = document.querySelectorAll("input[name='alarm']");
+checkBox.forEach((item) => {
+  item.addEventListener("click", (e) => {
+    const target = e.target;
+    if (target.checked) {
+      alert(`당신의 관심은 ${target.value}입니다`);
+    }
+  });
+});

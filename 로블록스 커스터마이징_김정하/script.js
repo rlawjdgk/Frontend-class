@@ -4,7 +4,7 @@ const close = document.querySelector(".fa-x");
 const firstDiv = document.querySelector("#wrapper > div:first-child");
 
 btn.addEventListener("click", (e) => {
-  e.preventDefault();
+  e.preventDefault(); //객체를 가지고 왔을때 필요한것
   modalBox.classList.add("active");
   firstDiv.classList.add("active");
 });
