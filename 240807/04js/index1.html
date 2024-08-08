@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script defer src="./script1.js"></script>
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0 auto;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        margin-top: 100px;
+        .container {
+          width: 1200px;
+          .heading {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+
+            .desc {
+              width: 70%;
+              p {
+                margin: 20px 0;
+              }
+            }
+          }
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="heading">
+        <div class="img">
+          <img
+            src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/d8b70d7e-a3b7-42f2-b3ef-b0db136d7175/gt-%ED%97%88%EC%8A%AC-3-ep-%EC%9D%BC%EB%A0%89%ED%8A%B8%EB%A6%AD-%EB%86%8D%EA%B5%AC%ED%99%94-qMKi22Hy.png"
+            alt="nike"
+          />
+          <div class="desc">
+            <h1>상품설명</h1>
+            <h2>상품명 : 나이키 G.T. 허슬 3 EP 일렉트릭</h2>
+            <p>
+              이중 스택 줌에어 유닛이 막강한 파워를 제공하고 통기성이 좋은
+              갑피가 안정성과 시원함을 유지해줍니다
+            </p>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Id
+              cupiditate necessitatibus dolor commodi possimus, temporibus ex
+              dicta enim veniam maxime iusto dolores nihil quae vitae recusandae
+              officiis culpa distinctio pariatur! Amet soluta cupiditate magni.
+              Voluptates ipsam nam laudantium vel incidunt animi suscipit ut
+              aspernatur voluptas tenetur eligendi labore nesciunt, similique
+              doloremque natus saepe et delectus a, earum at ex dolor?
+            </p>
+            <button id="order">상품주문하기</button>
+          </div>
+        </div>
+      </div>
+      <div class="orderinfo"></div>
+    </div>
+  </body>
+</html>
