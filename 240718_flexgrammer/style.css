@@ -1,0 +1,92 @@
+/* Google Font */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+/* Reset */
+@import url("./reset.css");
+
+/* Common */
+body {
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  color: var(--main-font-color);
+  height: 2000px;
+}
+
+.inner {
+  width: var(--main-content-width);
+  margin: 0 auto;
+}
+
+/* Header */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10000;
+  transition: all 0.5s;
+  .banner {
+    width: 100%;
+    height: 40px;
+    background: var(--main-dark-color);
+    color: var(--main-light-color);
+    display: flex;
+    align-items: center;
+    transition: all 0.5s;
+    .lnb {
+      width: var(--main-content-width);
+      height: 100%;
+      margin: 0 auto;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 10px;
+      a > em {
+        color: var(--main-accent-color);
+      }
+    }
+  }
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: var(--main-content-width);
+    margin: 0 auto;
+    margin-top: 20px;
+    .gnb {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      a {
+        color: var(--main-dark-color);
+        transition: all 0.3s;
+        &:hover {
+          color: crimson;
+        }
+      }
+    }
+  }
+  .trigger {
+    display: none;
+  }
+  &.active {
+    background: var(--main-light-color);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    .banner {
+      height: 0;
+      overflow: hidden;
+    }
+    nav {
+      padding-bottom: 20px;
+    }
+  }
+}
+
+/* Intro */
+.intro {
+  width: 100%;
+  height: 100vh;
+  background: url("./img/intro.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+}
