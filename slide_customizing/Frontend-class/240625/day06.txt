@@ -1,0 +1,34 @@
+특정 웹페이지 내 최상단 네비게이션 메뉴 > gnb navigation bar banner
+
+lnb: 
+
+smart animate: 레이아웃 구조 및 이름을 절대변경(*처음 원본데이터를 생성 => 마우스 이벤트 => 편집데이터를 출력
+
+
+
+id = 고유한 값 (딱 한번만 가능)
+class = 수량 상관없이 무한으로 사용 가능
+
+
+*중첩목록
+ul>li{$menu}*3
+
+
+8.테이블 태그
+- table / tr(*행) / td(table data = 열)
+- 열 가운데에서 대표적인 열 => th(table header)
+- html5 문법 > semantic 태그(*의미없이 사용하는 div 태그 지양
+- 만약 table > thead / tbody /tfoot
+- colspan => d
+
+
+9. mark 태그: 
+
+
+
+
+
+
+
+
+
