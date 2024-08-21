@@ -3,8 +3,6 @@ const playButton = document.querySelector(".play-pause");
 const video = document.querySelector("video");
 const volumeBar = document.querySelector("input[type='range']");
 // console.log(volumeBar);
-const progressCover = document.querySelector(".progress");
-const player = document.querySelector(".player");
 
 const play = () => {
   playButton.innerText = "||";
@@ -48,35 +46,7 @@ const updateTime = () => {
   duration.innerText = formatting(video.duration);
 };
 
-const updateProgress = () => {
-  const progressBar = document.querySelector(".bar");
-  const progressPointer = document.querySelector(".circle");
-  // console.log(progressbar, progressPointer);
-  const duration = video.duration;
-  const currentTime = video.currentTime;
-  const percent = (currentTime / duration) * 100;
-  progressBar.style.width = `${percent}%`;
-  const progressBarwidth = progressCover.clientWidth;
-  const newPosition = (currentTime / duration) * progressBarwidth - 1;
-  // console.log(progressBarwidth);
-  progressPointer.style.left = `${newPosition}px`;
-};
-
-const videoPoint = (e) => {
-  // console.log(e.pageX);
-  // console.log(player.offsetLeft);
-  const mouseX = e.pageX - player.offersetLeft;
-  const progressBarwidth = progressCover.clientWidth;
-  const duration = video.duration;
-  const clickedTime = (mouseX / progressBarwidth) * duration;
-  video.currentTime = clickedTime;
-};
-
 playButton.addEventListener("click", togglePlay);
 video.addEventListener("click", setVolume);
 video.addEventListener("timeupdate", updateTime);
-video.addEventListener("timeupdate", updateProgress);
 volumeBar.addEventListener("change", setVolume);
-progressCover.addEventListener("click", (e) => {
-  videoPoint(e);
-});
