@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=RocknRoll+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -7,7 +7,7 @@
 
 /* variable */
 body {
-  font-family: "RocknRoll One", sans-serif;
+  font-family: "Archivo Black", sans-serif;
 }
 
 .tab-inner {
@@ -53,19 +53,19 @@ body {
   opacity: 1;
 }
 .tab-inner input[type=radio]#tab1:checked ~ .btn label[for=tab1] {
-  color: crimson;
+  color: orange;
 }
 .tab-inner input[type=radio]#tab2:checked ~ .btn label[for=tab2] {
-  color: crimson;
+  color: orange;
 }
 .tab-inner input[type=radio]#tab3:checked ~ .btn label[for=tab3] {
-  color: crimson;
+  color: orange;
 }
 .tab-inner input[type=radio]#tab4:checked ~ .btn label[for=tab4] {
-  color: crimson;
+  color: orange;
 }
 .tab-inner input[type=radio]#tab5:checked ~ .btn label[for=tab5] {
-  color: crimson;
+  color: orange;
 }
 .tab-inner .tabs {
   overflow: hidden;
@@ -86,19 +86,19 @@ body {
   position: relative;
 }
 .tab-inner .tabs .items div:nth-child(1) {
-  background: url("./img/img1.jpg") center/cover no-repeat;
+  background: url("./img/slide1.jpg") center/cover no-repeat;
 }
 .tab-inner .tabs .items div:nth-child(2) {
-  background: url("./img/img2.jpg") center/cover no-repeat;
+  background: url("./img/slide2.jpeg") center/cover no-repeat;
 }
 .tab-inner .tabs .items div:nth-child(3) {
-  background: url("./img/img3.jpg") center/cover no-repeat;
+  background: url("./img/slide3.jpeg") center/cover no-repeat;
 }
 .tab-inner .tabs .items div:nth-child(4) {
-  background: url("./img/img4.jpg") center/cover no-repeat;
+  background: url("./img/slide4.jpg") center/cover no-repeat;
 }
 .tab-inner .tabs .items div:nth-child(5) {
-  background: url("./img/img5.jpg") center/cover no-repeat;
+  background: url("./img/slide5.jpeg") center/cover no-repeat;
 }
 .tab-inner .tabs .items div:nth-child(1)::before {
   content: "";
@@ -148,11 +148,11 @@ body {
 .tab-inner .tabs .items div h1 {
   position: relative;
   font-size: 90px;
-  color: rgba(255, 255, 255, 0.737254902);
+  color: gray;
   text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.271);
   /* text-align: center; */
-  top: 250px;
-  left: 50px;
+  top: 0px;
+  left: 80px;
   opacity: 0;
   transform: translateY(-200px);
   transition: 0.3s;
@@ -171,4 +171,4 @@ body {
   color: #fff;
   margin: 0 15px;
   cursor: pointer;
-}/*# sourceMappingURL=style1.css.map */
+}

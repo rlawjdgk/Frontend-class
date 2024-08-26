@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=RocknRoll+One&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
 
 * {
   margin: 0;
@@ -7,10 +7,10 @@
 }
 
 /* variable */
-$main-circle-color: crimson;
+$main-circle-color: orange;
 
 body {
-  font-family: "RocknRoll One", sans-serif;
+  font-family: "Archivo Black", sans-serif;
 }
 
 .tab-inner {
@@ -86,19 +86,19 @@ body {
         height: 100vh;
         position: relative;
         &:nth-child(1) {
-          background: url("./img/img1.jpg") center/cover no-repeat;
+          background: url("./img/slide1.jpg") center/cover no-repeat;
         }
         &:nth-child(2) {
-          background: url("./img/img2.jpg") center/cover no-repeat;
+          background: url("./img/slide2.jpeg") center/cover no-repeat;
         }
         &:nth-child(3) {
-          background: url("./img/img3.jpg") center/cover no-repeat;
+          background: url("./img/slide3.jpeg") center/cover no-repeat;
         }
         &:nth-child(4) {
-          background: url("./img/img4.jpg") center/cover no-repeat;
+          background: url("./img/slide4.jpg") center/cover no-repeat;
         }
         &:nth-child(5) {
-          background: url("./img/img5.jpg") center/cover no-repeat;
+          background: url("./img/slide5.jpeg") center/cover no-repeat;
         }
         &:nth-child(1)::before {
           content: "";
@@ -148,11 +148,11 @@ body {
         h1 {
           position: relative;
           font-size: 90px;
-          color: #ffffffbc;
+          color: gray;
           text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.271);
           /* text-align: center; */
-          top: 250px;
-          left: 50px;
+          top: 0px;
+          left: 80px;
           opacity: 0;
           transform: translateY(-200px);
           transition: 0.3s;
