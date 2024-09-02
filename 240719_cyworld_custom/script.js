@@ -22,6 +22,6 @@ const jukeboxChange = () => {
   menuJukebox.style = "background: #fff; color: #000";
 };
 
-menuHome.addEventListener("click", homeChange);
+menuHome.addEventListener("click", 0);
 menuGame.addEventListener("click", gameChange);
 menuJukebox.addEventListener("click", jukeboxChange);
