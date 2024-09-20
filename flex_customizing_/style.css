@@ -232,79 +232,39 @@ header nav .gnb {
   text-align: center;
 }
 .album .album_list {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+  width: 100%;
 }
-.album .album_list .album_image_first {
-  display: flex;
-  flex-direction: column;
-  margin-right: 40px;
-}
-.album .album_list .album_image_first img {
-  margin-bottom: 10px;
-  width: 300px;
-  height: 300px;
-}
-.album .album_list .album_image_first span {
-  font-size: 18px;
-  font-weight: 800;
-  cursor: pointer;
-}
-.album .album_list .album_image_first span:hover {
-  text-decoration: underline;
-}
-.album .album_list .album_image_second {
-  display: flex;
-  flex-direction: column;
-  margin-right: 40px;
-}
-.album .album_list .album_image_second img {
-  margin-bottom: 10px;
-  width: 300px;
-  height: 300px;
-}
-.album .album_list .album_image_second span {
-  font-size: 18px;
-  font-weight: 800;
-  cursor: pointer;
-}
-.album .album_list .album_image_second span:hover {
-  text-decoration: underline;
-}
-.album .album_list .album_image_third {
-  display: flex;
-  flex-direction: column;
-  margin-right: 40px;
-}
-.album .album_list .album_image_third img {
-  margin-bottom: 10px;
-  width: 300px;
-  height: 300px;
-}
-.album .album_list .album_image_third span {
-  font-size: 18px;
-  font-weight: 800;
-  cursor: pointer;
-}
-.album .album_list .album_image_third span:hover {
-  text-decoration: underline;
-}
+.album .album_list .album_image_first,
+.album .album_list .album_image_second,
+.album .album_list .album_image_third,
 .album .album_list .album_image_fourth {
   display: flex;
   flex-direction: column;
   margin-right: 40px;
 }
+.album .album_list .album_image_first img,
+.album .album_list .album_image_second img,
+.album .album_list .album_image_third img,
 .album .album_list .album_image_fourth img {
   margin-bottom: 10px;
   width: 300px;
   height: 300px;
 }
+.album .album_list .album_image_first span,
+.album .album_list .album_image_second span,
+.album .album_list .album_image_third span,
 .album .album_list .album_image_fourth span {
   font-size: 18px;
   font-weight: 800;
   cursor: pointer;
 }
+.album .album_list .album_image_first span:hover,
+.album .album_list .album_image_second span:hover,
+.album .album_list .album_image_third span:hover,
 .album .album_list .album_image_fourth span:hover {
   text-decoration: underline;
 }
@@ -314,66 +274,32 @@ header nav .gnb {
   align-items: center;
   justify-content: center;
 }
-.album .contents #close {
-  border: 1px solid red;
-}
-.album .contents .content_first {
-  display: none;
-  align-items: center;
-  justify-content: center;
-  margin-right: 20px;
-  border: 1px solid red;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: #fff;
-}
-.album .contents .content_first .album_box {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-.album .contents .content_first .album_box img {
-  margin-bottom: 10px;
-  width: 420px;
-  height: 430px;
-}
-.album .contents .content_first .album_box h3 {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 20px;
-  width: 100%;
-  font-size: 20px;
-}
-.album .contents .content_first .albumInfo p {
-  font-size: 15px;
-}
-.album .contents .content_first.active {
-  display: block;
-}
+.album .contents .content_first,
 .album .contents .content_second {
   display: none;
   align-items: center;
   justify-content: center;
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center the content */
   width: 100%;
   background: #fff;
 }
+.album .contents .content_first .album_box,
 .album .contents .content_second .album_box {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 }
+.album .contents .content_first .album_box img,
 .album .contents .content_second .album_box img {
   margin-bottom: 10px;
   width: 420px;
   height: 430px;
 }
+.album .contents .content_first .album_box h3,
 .album .contents .content_second .album_box h3 {
   display: flex;
   flex-direction: column;
@@ -381,9 +307,11 @@ header nav .gnb {
   width: 100%;
   font-size: 20px;
 }
+.album .contents .content_first .albumInfo p,
 .album .contents .content_second .albumInfo p {
   font-size: 15px;
 }
+.album .contents .content_first.active,
 .album .contents .content_second.active {
   display: block;
 }
