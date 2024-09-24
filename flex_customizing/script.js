@@ -1,3 +1,78 @@
+const handleWindowSize = () => {
+  if (innerWidth < 768) {
+    $(".album_list").slick({
+      dots: false,
+      infinite: true, // Disable infinite scrolling
+      autoplay: true,
+      speed: 1000,
+      // autoplaySpeed: 1000,
+      slidesToShow: 4,
+      slidesToScroll: 4,
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            fade: true,
+            slidesToShow: 4,
+            slidesToScroll: 4,
+          },
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            fade: true,
+            slidesToShow: 1,
+            slidesToScroll: 4,
+          },
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            fade: true,
+            autoplay: true,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+          },
+        },
+      ],
+    });
+    $(".posters").slick({
+      dots: false,
+      arrows: false,
+      infinite: true, // Disable infinite scrolling
+      autoplay: true,
+      speed: 1000,
+      autoplaySpeed: 1000,
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      responsive: [
+        {
+          breakpoint: 600,
+          fade: true,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+          },
+        },
+        {
+          breakpoint: 480,
+          fade: true,
+          autoplay: true,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+          },
+        },
+      ],
+    });
+  } else {
+    $(".album_list").slick("unslick");
+    $(".posters").slick("unslick");
+  }
+};
+
+window.addEventListener("resize", handleWindowSize);
+
 // Header Nav
 window.addEventListener("scroll", () => {
   let scroll = window.scrollY;
@@ -64,42 +139,7 @@ $(".myslider").slick({
   ],
 });
 
-// album slider
-$(".album_list").slick({
-  dots: true,
-  infinite: true, // Disable infinite scrolling
-  autoplay: true,
-  speed: 1000,
-  // autoplaySpeed: 1000,
-  slidesToShow: 4,
-  slidesToScroll: 4,
-  responsive: [
-    {
-      breakpoint: 1024,
-      settings: {
-        fade: true,
-        slidesToShow: 4,
-        slidesToScroll: 4,
-      },
-    },
-    {
-      breakpoint: 600,
-      settings: {
-        fade: true,
-        slidesToShow: 3,
-        slidesToScroll: 3,
-      },
-    },
-    {
-      breakpoint: 480,
-      settings: {
-        fade: true,
-        slidesToShow: 2,
-        slidesToScroll: 2,
-      },
-    },
-  ],
-});
+// poster slider
 
 // ScrollTo
 $(".gototop, .gnb a").click(function () {

@@ -1,16 +1,22 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { DiaryDispatchContext } from "../App";
 import Header from "../components/Header";
 import Button from "../components/Button";
-import useDiary from "../hocks/useDiary";
+import Editor from "../components/Editor";
+import useDiary from "../hooks/useDiary";
+import { setPageTitle } from "../utils";
 
 const Edit = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const data = useDiary(id);
 
-  const { onDelete } = useContext(DiaryDispatchContext);
+  useEffect(() => {
+    setPageTitle(`${id} Diary Edit`);
+  }, []);
+
+  const { onDelete, onUpdate } = useContext(DiaryDispatchContext);
 
   const onClickDelete = () => {
     if (window.confirm("일기를 정말 삭제할까요? 다시 복구되지 않아요!")) {
@@ -23,8 +29,16 @@ const Edit = () => {
     navigate(-1);
   };
 
+  const onSubmit = (data) => {
+    if (window.confirm("일기를 정말 수정할까요?")) {
+      const { date, content, emotionId } = data;
+      onUpdate(id, date, content, emotionId);
+      navigate("/");
+    }
+  };
+
   if (!data) {
-    <div>일기를 불러오고 있습니다.</div>;
+    return <div>일기를 불러오고 있습니다.</div>;
   } else {
     return (
       <div>
@@ -39,6 +53,7 @@ const Edit = () => {
             />
           }
         />
+        <Editor initData={data} onSubmit={onSubmit} />
       </div>
     );
   }

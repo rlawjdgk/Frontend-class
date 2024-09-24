@@ -1,15 +1,20 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import useDiary from "../hocks/useDiary";
+import useDiary from "../hooks/useDiary";
 import Header from "../components/Header";
 import Button from "../components/Button";
 import Viewer from "../components/Viewer";
-import { getFormattedDate } from "../utils";
+import { getFormattedDate, setPageTitle } from "../utils";
 
 const Diary = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const data = useDiary(id);
+
+  useEffect(() => {
+    setPageTitle(`${id} Diary`);
+  }, []);
+
   if (!data) {
     return <div>일기를 불러오고 있습니다...</div>;
   } else {

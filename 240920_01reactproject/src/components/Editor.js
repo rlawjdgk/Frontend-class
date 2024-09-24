@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Button from "./Button";
@@ -46,7 +46,7 @@ const Emotiongroup = styled.div`
   gap: 2%;
 `;
 
-const Editor = ({ initData = "", onSubmit }) => {
+const Editor = ({ initData, onSubmit }) => {
   const navigate = useNavigate();
   const [state, setState] = useState({
     date: getFormattedDate(new Date()),
@@ -86,12 +86,12 @@ const Editor = ({ initData = "", onSubmit }) => {
     navigate(-1);
   };
 
-  const handleChangeEmotion = (emotionId) => {
-    setState({
+  const handleChangeEmotion = useCallback((emotionId) => {
+    setState(() => ({
       ...state,
       emotionId,
-    });
-  };
+    }));
+  }, []);
 
   return (
     <div>
