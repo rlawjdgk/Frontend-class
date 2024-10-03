@@ -1,12 +1,12 @@
 import styled from "styled-components";
-import PostForm from "../components/Postform";
+import PostForm from "../components/PostForm";
 import TimeLine from "../components/TimeLine";
 
 const Wrapper = styled.div`
   display: grid;
   grid-template-rows: 1fr 5fr;
-  line-gap-override: 50px;
-  /* overflow-y: scroll; */
+  gap: 50px;
+  height: 90vh;
 `;
 
 const Home = () => {

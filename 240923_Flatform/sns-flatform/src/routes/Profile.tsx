@@ -1,7 +1,7 @@
-import React from "react";
+import profile from "react-router-dom";
 
 const Profile = () => {
-  return <div>Pofile</div>;
+  return <div>Profile</div>;
 };
 
 export default Profile;
