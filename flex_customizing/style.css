@@ -178,111 +178,6 @@ header nav .gnb {
   text-align: center;
 }
 
-/* album */
-.album {
-  padding: 50px 0;
-  position: relative;
-  width: 100%;
-  height: 500px;
-  background: #f8f8f8;
-}
-.album h3 {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 15px;
-  margin-left: 40px;
-  width: 200px;
-  font-size: 30px;
-  font-weight: 900;
-  color: #0242d9;
-  text-align: center;
-}
-.album .album_list {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-}
-.album .album_list .album_image_first,
-.album .album_list .album_image_second,
-.album .album_list .album_image_third,
-.album .album_list .album_image_fourth {
-  display: flex;
-  flex-direction: column;
-  margin-right: 40px;
-}
-.album .album_list .album_image_first img,
-.album .album_list .album_image_second img,
-.album .album_list .album_image_third img,
-.album .album_list .album_image_fourth img {
-  margin-bottom: 10px;
-  width: 300px;
-  height: 300px;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-.album .album_list .album_image_first span,
-.album .album_list .album_image_second span,
-.album .album_list .album_image_third span,
-.album .album_list .album_image_fourth span {
-  font-size: 18px;
-  font-weight: 800;
-  cursor: pointer;
-}
-.album .album_list .album_image_first span:hover,
-.album .album_list .album_image_second span:hover,
-.album .album_list .album_image_third span:hover,
-.album .album_list .album_image_fourth span:hover {
-  text-decoration: underline;
-}
-.album .contents {
-  display: flex;
-  gap: 50px;
-  align-items: center;
-  justify-content: center;
-}
-.album .contents .content_first,
-.album .contents .content_second {
-  display: none;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); /* Center the content */
-  width: 100%;
-  background: #fff;
-}
-.album .contents .content_first .album_box,
-.album .contents .content_second .album_box {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-.album .contents .content_first .album_box img,
-.album .contents .content_second .album_box img {
-  margin-bottom: 10px;
-  width: 420px;
-  height: 430px;
-}
-.album .contents .content_first .album_box h3,
-.album .contents .content_second .album_box h3 {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 20px;
-  width: 100%;
-  font-size: 20px;
-}
-.album .contents .content_first .albumInfo p,
-.album .contents .content_second .albumInfo p {
-  font-size: 15px;
-}
-.album .contents .content_first.active,
-.album .contents .content_second.active {
-  display: block;
-}
-
 /* footer */
 footer {
   display: flex;
@@ -335,23 +230,25 @@ footer .footer_content span {
 }
 
 /* mobile */
-@media screen and (max-width: 770px) {
+@media screen and (max-width: 768px) {
+  .inner {
+    width: 100%;
+  }
   header nav {
-    width: 770px;
+    width: 100%;
   }
   .intro .video {
     display: flex;
-    width: 770px;
+    width: 100%;
   }
   .about_content {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 770px;
+    width: 100%;
   }
   .about_content div.desc {
     display: flex;
-    margin-left: 30px;
   }
   .about_content div.desc h2 {
     font-size: 26px;
@@ -359,36 +256,17 @@ footer .footer_content span {
   .about_content div.desc p {
     font-size: 14px;
   }
-  .youtube {
-    overflow: hidden;
-  }
-  .youtube .youtube_content .items {
-    display: flex;
-    gap: 10px;
-    margin-right: 0;
-    margin-left: 5px;
-    width: 750px;
-    transition: transform 0.8s ease;
-  }
-  .youtube .youtube_content .items .item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    min-width: 100%;
-    box-sizing: border-box;
+  .poster h3 {
+    margin-top: 50px;
   }
 }
-@media only screen and (max-width: 770px) {
+@media screen and (max-width: 390px) {
   .inner {
     margin: 0 auto;
     width: 100%;
   }
   .container {
     margin: 0 auto;
-  }
-  header {
-    width: 100%;
   }
   header nav {
     width: 100%;
@@ -402,9 +280,6 @@ footer .footer_content span {
     gap: 10px;
     margin-right: 10px;
   }
-  .intro {
-    width: 100%;
-  }
   .intro .video {
     position: relative;
     width: 100%;
@@ -412,9 +287,11 @@ footer .footer_content span {
   .intro .video iframe {
     position: absolute;
   }
+  .about_content {
+    width: 100%;
+  }
   .about_content div {
     margin-top: 140px;
-    margin-right: 80px;
   }
   .about_content div.desc h2 {
     font-size: 30px;
@@ -424,6 +301,9 @@ footer .footer_content span {
   }
   .about_content div.desc a {
     font-size: 1rem;
+  }
+  .about_content div.photo {
+    display: none;
   }
   .poster {
     display: flex;
@@ -463,28 +343,5 @@ footer .footer_content span {
   }
   .profile {
     padding: 60px 20px;
-  }
-  .album {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    height: 100vh;
-  }
-  .album h3 {
-    display: flex;
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  .album .album_content {
-    justify-content: center;
-    width: 100%;
-  }
-  .album .album_list .album_image_first,
-  .album .album_list .album_image_second,
-  .album .album_list .album_image_third,
-  .album .album_list .album_image_fourth {
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
   }
 }

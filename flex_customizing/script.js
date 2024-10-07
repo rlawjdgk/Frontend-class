@@ -1,41 +1,5 @@
 const handleWindowSize = () => {
-  if (innerWidth < 768) {
-    $(".album_list").slick({
-      dots: false,
-      infinite: true, // Disable infinite scrolling
-      autoplay: true,
-      speed: 1000,
-      // autoplaySpeed: 1000,
-      slidesToShow: 4,
-      slidesToScroll: 4,
-      responsive: [
-        {
-          breakpoint: 1024,
-          settings: {
-            fade: true,
-            slidesToShow: 4,
-            slidesToScroll: 4,
-          },
-        },
-        {
-          breakpoint: 600,
-          settings: {
-            fade: true,
-            slidesToShow: 1,
-            slidesToScroll: 4,
-          },
-        },
-        {
-          breakpoint: 480,
-          settings: {
-            fade: true,
-            autoplay: true,
-            slidesToShow: 1,
-            slidesToScroll: 1,
-          },
-        },
-      ],
-    });
+  if (innerWidth < 800) {
     $(".posters").slick({
       dots: false,
       arrows: false,
@@ -66,8 +30,8 @@ const handleWindowSize = () => {
       ],
     });
   } else {
-    $(".album_list").slick("unslick");
     $(".posters").slick("unslick");
+    $(".album_list").slick("unslick");
   }
 };
 
