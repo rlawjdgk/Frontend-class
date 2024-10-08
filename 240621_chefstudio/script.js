@@ -52,82 +52,81 @@ closeBtn.addEventListener("click", () => {
 });
 
 // main slide
-const slideContainerArrow = document.querySelector(".slide_container_arrow"); // 슬라이드 영역
-const slideArrows = document.querySelectorAll(".slide_container_btn"); // 슬라이드 버튼
-const slidePagers = document.querySelectorAll(".slide_pager span"); // 슬라이드 페이저
-const slideImg = document.querySelector(".slide_img"); // 슬라이드 이미지
+document.addEventListener("DOMContentLoaded", () => {
+  const slideContainer = document.querySelector(".slide_container");
+  const slides = document.querySelectorAll(".slide_container li");
+  const leftArrow = document.getElementById("leftArrow");
+  const rightArrow = document.getElementById("rightArrow");
+  const pagers = document.querySelectorAll(".slide_pager span");
+  let currentIndex = 0;
+  const totalSlides = slides.length;
+  let slideInterval;
 
-// 배열
-const pics = ["slide1.png", "slide2.png", "slide3.png"];
-let i = 0;
-let slideInterval;
-let isTransitioning = false;
-
-slideImg.style.backgroundImage = `url(https://cromidi.cafe24.com/chef/${pics[i]})`;
-slidePagers[0].classList.add("active");
-
-// 실제 이미지 및 페이저 값을 변경시켜주는 실행 함수
-const updateSlide = (i) => {
-  slidePagers.forEach((item) => {
-    item.classList.remove("active");
-  });
-  slideImg.style.backgroundImage = `url(https://cromidi.cafe24.com/chef/${pics[i]})`;
-  slidePagers[i].classList.add("active");
-};
-
-// 자동으로 슬라이드 이미지가 변경되도록 해주는 함수
-const startSlideShow = () => {
-  slideInterval = setInterval(() => {
-    i = (i + 1) % pics.length;
-    updateSlide(i);
-  }, 4000);
-};
-
-// 자동슬라이드 기능을 정지시켜주는 함수
-const stopSlideShow = () => {
-  clearInterval(slideInterval);
-};
-
-// 자동슬라이드 재시작을 실행시켜주는 함수
-const resetSlideShow = () => {
-  stopSlideShow();
-  isTransitioning = false;
-  startSlideShow();
-};
-
-// 화살표 클릭 및 이미지 변경요청 함수
-slideArrows.forEach((arrow) => {
-  arrow.addEventListener("click", (e) => {
-    if (isTransitioning) return;
-    isTransitioning = true;
-
-    stopSlideShow();
-    if (e.target.id === "leftArrow") {
-      i = (i - 1 + pics.length) % pics.length;
-    } else if (e.target.id === "rightArrow") {
-      i = (i + 1) % pics.length;
+  // 슬라이드 이동 함수
+  const moveToSlide = (index) => {
+    if (index < 0) {
+      currentIndex = totalSlides - 1;
+    } else if (index >= totalSlides) {
+      currentIndex = 0;
+    } else {
+      currentIndex = index;
     }
+    slideContainer.style.transform = `translateX(-${currentIndex * 100}%)`;
+    updatePagers();
+  };
 
-    updateSlide(i);
+  // 페이저 업데이트 함수
+  const updatePagers = () => {
+    pagers.forEach((pager, idx) => {
+      pager.classList.toggle("active", idx === currentIndex);
+    });
+  };
 
-    setTimeout(() => {
-      isTransitioning = false;
-      startSlideShow();
-    }, 500);
+  // 자동 슬라이드 시작 함수
+  const startSlideShow = () => {
+    slideInterval = setInterval(() => {
+      moveToSlide(currentIndex + 1);
+    }, 4000); // 4초마다 슬라이드 변경
+  };
+
+  // 자동 슬라이드 정지 함수
+  const stopSlideShow = () => {
+    clearInterval(slideInterval);
+  };
+
+  // 화살표 클릭 이벤트
+  rightArrow.addEventListener("click", () => {
+    moveToSlide(currentIndex + 1);
+    resetSlideShow();
   });
-});
 
-// 페이저 클릭 시, 슬라이드 이미지 변경 함수
-slidePagers.forEach((pager, index) => {
-  pager.addEventListener("click", () => {
+  leftArrow.addEventListener("click", () => {
+    moveToSlide(currentIndex - 1);
+    resetSlideShow();
+  });
+
+  // 페이저 클릭 이벤트
+  pagers.forEach((pager, index) => {
+    pager.addEventListener("click", () => {
+      moveToSlide(index);
+      resetSlideShow();
+    });
+  });
+
+  // 슬라이드 컨테이너에 마우스 오버 시 자동 슬라이드 정지
+  slideContainer.addEventListener("mouseover", stopSlideShow);
+  // 마우스 아웃 시 자동 슬라이드 재시작
+  slideContainer.addEventListener("mouseout", startSlideShow);
+
+  // 슬라이드 쇼 재시작 함수
+  const resetSlideShow = () => {
     stopSlideShow();
-    i = index;
-    updateSlide(i);
-    setTimeout(startSlideShow, 500);
-  });
+    startSlideShow();
+  };
+
+  // 초기 페이저 업데이트
+  updatePagers();
+
+  // 슬라이드 쇼 시작
+  startSlideShow();
 });
-
-startSlideShow();
-
-slideContainerArrow.addEventListener("mouseover", stopSlideShow);
-slideContainerArrow.addEventListener("mouseout", resetSlideShow);
