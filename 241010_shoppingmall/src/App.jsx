@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import reset from "styled-reset";
 import { createGlobalStyle } from "styled-components";
 import Layout from "./components/Layout";
 import ProductAll from "./Pages/ProductAll";
 import Login from "./Pages/Login";
-import ProductDetail from "./Pages/ProductDetail";
+import { useSelector } from "react-redux";
 import PrivateRoute from "./routes/PrivateRoute";
 
 const GlobalStyles = createGlobalStyle`
@@ -28,6 +28,14 @@ const GlobalStyles = createGlobalStyle`
 
 const App = () => {
   const [authenticate, setauthenticate] = useState(false);
+  const trueOk = useSelector(() => state.auth.authenticate);
+
+  useEffect(
+    () => {
+      setAuthenticate(trueOk);
+    },
+    { trueOk }
+  );
 
   const router = createBrowserRouter([
     {

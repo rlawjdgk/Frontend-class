@@ -1,36 +1,35 @@
-import React, { useState, useEffect } from "react";
-import { useSearchParams } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.min.css";
+import React, { useEffect, useState } from "react";
 import ProductCard from "../components/ProductCard";
+import "bootstrap/dist/css/bootstrap.min.css";
 import { Col, Container, Row } from "react-bootstrap";
-
-const PoductAll = () => {
-  const [productList, setProductList] = useState([]);
+import { useSearchParams } from "react-router-dom";
+import { productAction } from "../redux/actions/productAction";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
+const ProductAll = () => {
+  const dispatch = useDispatch();
   const [query, setQuery] = useSearchParams();
+  const productList = useSelector((state) => state.product.productList);
+  console.log(productList);
   const getProducts = async () => {
     const searchQuery = query.get("q") || "";
-    console.log(searchQuery);
-    // const url = `http://localhost:3000/products?q=${searchQuery}`;
-    const url = `https://my-json-server.typicode.com/rlawjdgk/musinsamall/products?q=${searchQuery}`;
-    const response = await fetch(url);
-    const data = await response.json();
-    setProductList(data);
-    console.log(productList);
+    dispatch(productAction.getProduct(searchQuery));
   };
   useEffect(() => {
     getProducts();
   }, [query]);
   return (
-    <Container>
-      <Row>
-        {productList.map((menu, index) => (
-          <Col key={index} lg={3}>
-            <ProductCard item={menu} />
-          </Col>
-        ))}
-      </Row>
-    </Container>
+    <>
+      <Container>
+        <Row>
+          {productList.map((product, index) => (
+            <Col key={index} lg={3}>
+              <ProductCard key={product.id} {...product} />
+            </Col>
+          ))}
+        </Row>
+      </Container>
+    </>
   );
 };
-
-export default PoductAll;
+export default ProductAll;
