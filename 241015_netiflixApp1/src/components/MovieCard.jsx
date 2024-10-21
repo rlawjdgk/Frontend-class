@@ -19,7 +19,7 @@ const Wrapper = styled.div`
 //   border: 1px solid #f00;
 // `;
 const Img = styled.img`
-  width: 100%;
+  width: 80%;
   height: 100%;
   object-fit: top;
 `;
@@ -48,12 +48,15 @@ const InfoGroup = styled.div`
   gap: 20px;
 `;
 
-const Vote = styled.span``;
+const Vote = styled.span`
+  position: absolute;
+  left: 180px;
+`;
 
 const Adult = styled.div`
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 50px;
+  right: 100px;
   background: rgba(220, 20, 60, 0.8);
   padding: 10px;
   width: 50px;

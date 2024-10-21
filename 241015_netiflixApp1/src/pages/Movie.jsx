@@ -1,7 +1,12 @@
 import React from "react";
+import Trtailer from "../components/Trailer";
 
 const Movie = () => {
-  return <div>Movie</div>;
+  return (
+    <div>
+      <Trailer />
+    </div>
+  );
 };
 
 export default Movie;
