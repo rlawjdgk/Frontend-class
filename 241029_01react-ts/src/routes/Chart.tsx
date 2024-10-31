@@ -4,6 +4,8 @@ import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import { fetchCoinHistory } from "../api";
 import ApexChart from "react-apexcharts";
+import { useRecoilValue } from "recoil";
+import { isDarkAtom } from "../atoms";
 
 const Container = styled.div`
   margin-top: 10px;
@@ -32,32 +34,33 @@ interface Example {
 }
 
 const Chart = () => {
+  const isDark = useRecoilValue(isDarkAtom);
   const { coinId } = useParams();
   const { isLoading, data } = useQuery<CoinHistory[]>({
     queryKey: ["history", coinId],
     queryFn: () => fetchCoinHistory(coinId),
-    // refetchInterval: 5000,
+    refetchInterval: 5000,
   });
 
-  console.log(data);
+  const chartData = Array.isArray(data) && data?.length > 0 ? data : [];
 
   return (
     <Container>
       {isLoading ? (
         "Loading Chart..."
-      ) : (
+      ) : chartData.length > 0 ? (
         <ApexChart
           width={600}
           type="line"
           series={[
             {
               name: "Price",
-              data: data?.map((price) => Number(price.close)) || [],
+              data: chartData.map((price) => parseFloat(price.close)) || [],
             },
           ]}
           options={{
             theme: {
-              mode: "dark",
+              mode: isDark ? "dark" : "light",
             },
             stroke: {
               width: 4,
@@ -76,10 +79,17 @@ const Chart = () => {
               labels: {
                 show: true,
               },
+              categories: chartData.map((price) =>
+                new Date(price.time_close * 1000).toLocaleDateString()
+              ),
             },
             yaxis: {
               labels: {
                 show: true,
+                style: {
+                  fontSize: "12px",
+                },
+                formatter: (value) => `${value.toFixed(3)}`,
               },
             },
             colors: ["#b490ca"],
@@ -97,6 +107,8 @@ const Chart = () => {
             },
           }}
         />
+      ) : (
+        "No Data available to display chart"
       )}
     </Container>
   );
