@@ -1,0 +1,186 @@
+/* reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* wrapper */
+#wrapper {
+  display: flex;
+  align-items: center;
+  padding: 30px;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: #111;
+}
+
+/* logon */
+#logon {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
+  flex-direction: column;
+  margin: 0 auto 50px;
+  padding: 20px;
+  position: relative;
+  width: 1000px;
+  height: 650px;
+  background: #141124;
+  .img {
+    position: absolute;
+    right: 0;
+    width: 480px;
+    height: 650px;
+    background: url("./img/lol.jpg") center/cover no-repeat;
+  }
+}
+
+.inner_contents {
+  font-size: 14px;
+  color: #fff;
+}
+
+.title {
+  margin-bottom: 20px;
+  width: 423px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#calendar {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px 0 30px;
+}
+
+select {
+  padding-left: 40px;
+  width: 141px;
+  height: 40px;
+  background: #27273f;
+  font-size: 16px;
+  color: #bdbebe;
+  &:first-child {
+    border-radius: 8px 0 0 8px;
+  }
+  &:last-child {
+    border-radius: 0 8px 8px 0;
+  }
+}
+
+.username #user {
+  margin-top: 10px;
+  padding-left: 12px;
+  border: 1px solid #707070;
+  width: 100%;
+  height: 40px;
+  background: #27273f;
+  font-size: 16px;
+  color: #fff;
+  border-radius: 8px;
+  &:focus {
+    outline: none;
+  }
+}
+
+#emailMessage {
+  margin: 10px 0 20px;
+}
+
+.userpassword #password {
+  margin-top: 10px;
+  padding-left: 12px;
+  border: 1px solid #707070;
+  width: 100%;
+  height: 40px;
+  background: #27273f;
+  font-size: 16px;
+  color: #fff;
+  border-radius: 8px;
+  &:focus {
+    outline: none;
+  }
+}
+
+#passwordMessage {
+  margin: 10px 0 20px;
+}
+
+.userpassword #passwordCheck {
+  margin-top: 10px;
+  padding-left: 12px;
+  border: 1px solid #707070;
+  width: 100%;
+  height: 40px;
+  background: #27273f;
+  font-size: 16px;
+  color: #fff;
+  border-radius: 8px;
+  &:focus {
+    outline: none;
+  }
+}
+
+#passwordCheckMessage {
+  margin: 10px 0 20px;
+}
+
+.number #phone {
+  margin-top: 10px;
+  padding-left: 12px;
+  border: 1px solid #707070;
+  overflow: hidden;
+  width: 100%;
+  height: 40px;
+  background: #27273f;
+  font-size: 16px;
+  color: #fff;
+  border-radius: 8px;
+  &:focus {
+    outline: none;
+  }
+}
+
+#phoneMessage {
+  margin: 10px 0 20px;
+}
+
+.check #auth {
+  margin: 10px 0;
+  border: 1px solid red;
+  input[type="checkbox"] {
+    margin: 10px;
+    scale: 2;
+  }
+}
+
+/* style.css */
+.btn input[type="submit"] {
+  margin-top: 30px;
+  padding: 10px 20px;
+  border: none;
+  width: 100%;
+  height: 40px;
+  background-color: #17afcd;
+  color: #fff;
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+
+.btn input[type="submit"].active {
+  background-color: #17afcd;
+  cursor: pointer;
+}
