@@ -127,7 +127,7 @@ const Header = () => {
   };
 
   const navVariants = {
-    top: { background: "rgba(0, 0, 0, 0)" },
+    top: { background: "rgba(0, 0, 0, 1)" },
     scroll: { background: "rgba(0, 0, 0, 1)" },
   };
 
