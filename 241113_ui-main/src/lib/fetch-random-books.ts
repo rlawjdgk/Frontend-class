@@ -10,7 +10,7 @@ const fetchRandomBooks = async (): Promise<BookData[]> => {
     }
     return await response.json();
   } catch (err) {
-    console.log(err);
+    console.error(err);
     return [];
   }
 };

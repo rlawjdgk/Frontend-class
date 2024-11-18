@@ -1,6 +1,6 @@
 import { BookData } from "@/types";
 
-const fetchOneBooks = async (id: number): Promise<BookData | null> => {
+const fetchOneBook = async (id: number): Promise<BookData | null> => {
   const url = `http://localhost:12345/book/${id}`;
 
   try {
@@ -10,9 +10,9 @@ const fetchOneBooks = async (id: number): Promise<BookData | null> => {
     }
     return await response.json();
   } catch (err) {
-    console.log(err);
+    console.error(err);
     return null;
   }
 };
 
-export default fetchOneBooks;
+export default fetchOneBook;

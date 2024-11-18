@@ -1,6 +1,6 @@
-import { ReactNode, useState } from "react";
+import React, { ReactNode, useState } from "react";
 import { useRouter } from "next/router";
-import style from "./search-layout.module.css";
+import style from "./searchable-layout.module.css";
 
 const SearchableLayout = ({ children }: { children: ReactNode }) => {
   const [search, setSearch] = useState("");
@@ -8,11 +8,11 @@ const SearchableLayout = ({ children }: { children: ReactNode }) => {
     setSearch(event.target.value);
   };
 
-  const Router = useRouter();
+  const router = useRouter();
   const onSubmit = (event: React.FormEvent) => {
     event.preventDefault();
     if (!search) return;
-    Router.push(`/search?q=${search}`);
+    router.push(`/search?q=${search}`);
   };
   return (
     <div>
@@ -22,7 +22,7 @@ const SearchableLayout = ({ children }: { children: ReactNode }) => {
             value={search}
             type="text"
             onChange={onChangeSearch}
-            placeholder="검색어를 입력하세요"
+            placeholder="검색어를 입력하세요..."
           />
           <input type="submit" value="검색" />
         </form>

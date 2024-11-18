@@ -1,9 +1,8 @@
 import React, { ReactNode } from "react";
 import style from "./index.module.css";
 import SearchableLayout from "@/components/searchable-layout";
-import books from "@/mock/book.json";
 import BookItem from "@/components/book-item";
-import { InferGetServerSidePropsType } from "next";
+import { InferGetStaticPropsType } from "next";
 import fetchBooks from "@/lib/fetch-books";
 import fetchRandomBooks from "@/lib/fetch-random-books";
 import Head from "next/head";
@@ -13,15 +12,16 @@ export const getStaticProps = async () => {
     fetchBooks(),
     fetchRandomBooks(),
   ]);
-  // Home이라는 페이지 컴포넌트가 실행되기 전에 먼저 실행되어서, 컴포넌트에
+
   return {
     props: { allBooks, recoBooks },
   };
 };
 
 const Home = ({
+  allBooks,
   recoBooks,
-}: InferGetServerSidePropsType<typeof getStaticProps>) => {
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
   return (
     <>
       <Head>
@@ -42,7 +42,7 @@ const Home = ({
         </section>
         <section>
           <h3>등록된 모든 도서</h3>
-          {books.map((book) => (
+          {allBooks.map((book) => (
             <BookItem key={book.id} {...book} />
           ))}
         </section>
