@@ -4,7 +4,7 @@ const sumArray = (arr) => {
   if (arr.length === 1 || arr.length === 0) {
     return 1;
   } else {
-    return sumArray(arr.slice(0, -1) + [arr.length - 1]);
+    return sumArray(arr.slice(0, -1)) + arr[arr.length - 1];
   }
 };
 

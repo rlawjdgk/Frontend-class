@@ -11,7 +11,7 @@ hashSet.add(512);
 hashSet.printAll();
 console.log(`isEmpty: ${hashSet.isEmpty()}`);
 
-console.log("==== 데이터 체크 ====");
+console.log("==== 데이터 체크1 ====");
 console.log(`isContain: ${hashSet.isContain(1)}`);
 
 console.log("==== 데이터1 제거 ====");

@@ -1,10 +1,30 @@
-const myFunc = () => {
-  if (number > 10) return;
-  console.log(number);
-  myFunc(number + 1);
-};
+// const myFunc = (4) => {
+//   if (4 > 3) return;
+//   console.log(number);
+//   myFunc(number + 1);
+// };
 
-myFunc(1);
+// myFunc(3);
+// const myFunc = (3) => {
+//   if (3 > 3) return;
+//   console.log(3);
+//   myFunc(3 + 1);
+// };
+
+// myFunc(2);
+// const myFunc = (2) => {
+//   if (2 > 3) return;
+//   console.log(2);
+//   myFunc(2 + 1);
+// };
+
+// const myFunc = (1) => {
+//   if (1 > 3) return;
+//   console.log(1);
+//   myFunc(1 + 1);
+// };
+
+// myFunc(1);
 
 // const funcA = () => {
 //   let a = 10;
@@ -13,26 +33,26 @@ myFunc(1);
 // };
 
 // const funcB = () => {
-//   let a = 10;
-//   let b = 5;
+//   let c = 10;
+//   let d = 5;
 //   return c - d;
 // };
 
 // funcA();
 // funcB();
 
-const funC = () => {
-  let a = 10;
-  let b = 5;
-  return a - b;
-};
+// const funcC = () => {
+//   let a = 10;
+//   let b = 5;
+//   return a - b;
+// };
 
-const funD = () => {
-  let c = 10;
-  let d = 5;
-  let e = funC();
-  return c + d + e;
-};
+// const funcD = () => {
+//   let c = 10;
+//   let d = 5;
+//   let e = funcC();
+//   return c + d + e;
+// };
 
-funC();
-funD();
+// funcD();
+// funcC();

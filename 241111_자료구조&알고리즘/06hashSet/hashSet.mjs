@@ -1,4 +1,4 @@
-import { HashTable } from "../05hashTable/hashTable.mjs";
+import { HashTable } from "./hashTable.mjs";
 
 class HashSet {
   constructor() {
