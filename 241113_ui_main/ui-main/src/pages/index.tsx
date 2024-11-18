@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect } from "react";
+import React, { ReactNode } from "react";
 import style from "./index.module.css";
 import SearchableLayout from "@/components/searchable-layout";
 import books from "@/mock/book.json";
@@ -7,7 +7,8 @@ import { InferGetServerSidePropsType } from "next";
 import fetchBooks from "@/lib/fetch-books";
 import fetchRandomBooks from "@/lib/fetch-random-books";
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
+  console.log("index페이지");
   const [allBooks, recoBooks] = await Promise.all([
     fetchBooks(),
     fetchRandomBooks(),
@@ -19,9 +20,8 @@ export const getServerSideProps = async () => {
 };
 
 const Home = ({
-  allBooks,
   recoBooks,
-}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+}: InferGetServerSidePropsType<typeof getStaticProps>) => {
   return (
     <main className={style.container}>
       <section>
