@@ -21,8 +21,10 @@ RestFul API
 /search -> Search
 
 / users로 시작하는 페이지 라우팅 => 라우터
+/users/logout -> logout User
 /users/edit -> Edit User
 /users/delete -> Delete User
+/users/:id -> Segment User
 
 / video로 시작하는 페이지 라우팅 => 라우터
 /video/watch-> Watch Video
