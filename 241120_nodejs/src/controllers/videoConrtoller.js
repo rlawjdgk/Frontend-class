@@ -3,6 +3,8 @@
 //   loggedIn: false,
 // };
 
+import { response } from "express";
+
 const videos = [
   {
     id: 1,
@@ -34,7 +36,7 @@ export const trending = (req, res) => {
   res.render("home", { pageTitle: "Home", videos });
 };
 export const search = (req, res) => res.send("Search Videos");
-export const upload = (req, res) => res.send("Upload Videos");
+// export const upload = (req, res) => res.send("Upload Videos");
 export const watch = (req, res) => {
   const { id } = req.params;
   const video = videos[id - 1];
@@ -51,6 +53,24 @@ export const postEdit = (req, res) => {
   const { title } = req.body;
   videos[id - 1].title = title;
   return res.redirect(`/videos/${id}`);
+};
+
+export const getUplold = (req, res) => {
+  return res.render("upload", { pageTitle: "Upload Videos" });
+};
+
+export const postUplold = (req, res) => {
+  const { title } = req.body;
+  const newVideo = {
+    id: videos.length + 1,
+    title,
+    createdAt: "Just Now",
+    views: 0,
+    comment: 0,
+    rating: 0,
+  };
+  videos.push(newVideo);
+  return res.redirect("/");
 };
 
 export const deleteVideo = (req, res) => {

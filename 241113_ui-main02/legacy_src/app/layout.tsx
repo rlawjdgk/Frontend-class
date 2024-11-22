@@ -32,7 +32,7 @@ export default function RootLayout({
           &nbsp;
           <Link href={"/search"}>search</Link>
           &nbsp;
-          <Link href={"/book"}>book</Link>
+          <Link href={"/book/i"}>book</Link>
           {children}
         </header>
       </body>

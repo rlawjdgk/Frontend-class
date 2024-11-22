@@ -1,17 +1,23 @@
-import styles from "../(with-searchbar)/page.module.css";
-import BookItem from "@/components/book.item";
-import books from "@/mock/book.json";
+import styles from "./page.module.css";
+import BookItem from "@/components/book-item";
 import { BookData } from "@/types";
 
 const RecoBooks = async () => {
-  const response = await fetch("http://localhost:12345/book/random");
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_API_SERVER_URL}/book/random`,
+    {
+      next: {
+        revalidate: 3,
+      },
+    }
+  );
   if (!response.ok) {
     return <div>오류가 발생했습니다...</div>;
   }
-  const RecoBooks: BookData[] = await response.json();
+  const recoBooks: BookData[] = await response.json();
   return (
     <div>
-      {allBooks.map((book) => (
+      {recoBooks.map((book) => (
         <BookItem key={book.id} {...book} />
       ))}
     </div>
@@ -19,7 +25,10 @@ const RecoBooks = async () => {
 };
 
 const AllBooks = async () => {
-  const response = await fetch("http://localhost:12345/book");
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_API_SERVER_URL}/book`,
+    { cache: "no-store" }
+  );
   if (!response.ok) {
     return <div>오류가 발생했습니다...</div>;
   }
@@ -34,16 +43,11 @@ const AllBooks = async () => {
 };
 
 const Home = async () => {
-  const response = await fetch("http://localhost:12345/book");
-  const allBooks = await response.json();
-  console.log(allBooks);
   return (
-    <div className={styles.page}>
+    <div className={styles.container}>
       <section>
         <h3>지금 추천하는 도서</h3>
-        {books.map((book) => (
-          <BookItem key={book.id} {...book} />
-        ))}
+        <RecoBooks />
       </section>
       <section>
         <h3>등록된 모든 도서</h3>
