@@ -1,4 +1,4 @@
-// 이메일을 잊으셨나요 기능
+git; // 이메일을 잊으셨나요 기능
 const input = document.querySelector(".input");
 const mailFind = document.querySelector(".mailFind");
 
