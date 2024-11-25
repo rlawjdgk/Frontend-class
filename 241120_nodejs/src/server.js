@@ -1,12 +1,14 @@
+// import "./db"; // express보다 위에 있어야함
+// import videoModel from "./models/video";
 import express from "express";
 import morgan from "morgan";
 import globalRouter from "./routers/globalRouter";
 import userRouter from "./routers/userRouter";
 import videoRouter from "./routers/videoRouter";
 
-const PORT = 4000;
+// const PORT = 4000;
 
-console.log(process.cwd());
+// console.log(process.cwd());
 
 const app = express();
 const logger = morgan("dev");
@@ -45,7 +47,9 @@ app.use("/", globalRouter); // "/" 경로는 globalRouter에서 처리
 app.use("/users", userRouter); // "/users" 경로는 userRouter에서 처리
 app.use("/videos", videoRouter); // "/video" 경로는 videoRouter에서 처리
 
-const handleListening = () =>
-  console.log(`⏳Server Listening on Port http://localhost:${PORT}⏳`);
+// const handleListening = () =>
+//   console.log(`⏳Server Listening on Port http://localhost:${PORT}⏳`);
 
 app.listen(4000, handleListening);
+
+export default app;
