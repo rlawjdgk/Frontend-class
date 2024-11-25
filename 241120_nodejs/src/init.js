@@ -1,10 +1,9 @@
-import "./db";
-import "./models/video";
-import app from "./server";
+import app from "./server"; // server.js에서 app을 import
 
 const PORT = 4000;
 
 const handleListening = () =>
   console.log(`⏳Server Listening on Port http://localhost:${PORT}⏳`);
 
-app.listen(4000, handleListening);
+// 서버가 정상적으로 실행되면 handleListening 콜백을 실행
+app.listen(PORT, handleListening); // app.listen에 handleListening 전달

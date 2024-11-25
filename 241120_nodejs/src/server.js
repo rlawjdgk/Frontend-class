@@ -50,6 +50,6 @@ app.use("/videos", videoRouter); // "/video" 경로는 videoRouter에서 처리
 // const handleListening = () =>
 //   console.log(`⏳Server Listening on Port http://localhost:${PORT}⏳`);
 
-app.listen(4000, handleListening);
+// app.listen(4000, handleListening);
 
 export default app;
