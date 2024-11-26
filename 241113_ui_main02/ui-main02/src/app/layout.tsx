@@ -34,7 +34,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
       <body>
         <div className={style.container}>
           <header>
-            <Link href={"/"}>💌 ONEBITE BOOKS</Link>
+            <Link href={"/"}>🤍 ONEBITE BOOKS</Link>
           </header>
           <main>{children}</main>
           <Footer />

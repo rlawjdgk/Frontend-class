@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import { BookData } from "@/types";
 import BookItem from "@/components/book-item";
 import delay from "@/util/delay";
@@ -30,7 +30,14 @@ const Page = async ({
 }: {
   searchParams: Promise<{ q: string }>;
 }) => {
-  return <SearchResult q={(await searchParams).q || ""} />;
+  return (
+    <Suspense
+      key={(await searchParams).q || ""}
+      fallback={<div>Loading...</div>}
+    >
+      <SearchResult q={(await searchParams).q || ""} />
+    </Suspense>
+  );
 };
 
 export default Page;
