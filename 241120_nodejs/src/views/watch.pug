@@ -1,9 +1,11 @@
 extends base.pug
 
-//- block head
-//-   title Watch | Youtube
-
-block content 
-  h1=video.title
-  h3 #{video.views} #{video.views === 1 ? "view" : "views"} 
-  a(href=`${video.id}/edit`) Edit Video &rarr;
+block content
+  div
+    p=video.description
+    small=video.createdAt
+  a(href=`${video.id}/edit`) Edit Video &rarr; 
+  // Edit video button 
+  br
+  a(href=`${video.id}/delete`) Delete Video &rarr; 
+  // Delete Button 

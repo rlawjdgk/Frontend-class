@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rlawjdgk/node-reloaded.git"
+    "url": "git+https://github.com/Divjason/node-reloaded.git"
   },
-  "author": "rlawjdgk",
+  "author": "David",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/rlawjdgk/node-reloaded/issues"
+    "url": "https://github.com/Divjason/node-reloaded/issues"
   },
-  "homepage": "https://github.com/rlawjdgk/node-reloaded#readme",
+  "homepage": "https://github.com/Divjason/node-reloaded#readme",
   "dependencies": {
     "express": "^4.21.1",
     "mongoose": "^8.8.2",

@@ -3,26 +3,16 @@ import {
   watch,
   getEdit,
   postEdit,
-  getUpload,
-  postUpload,
+  getUplold,
+  postUplold,
   deleteVideo,
-} from "../controllers/videoConrtoller";
+} from "../controllers/videoController";
 
 const videoRouter = express.Router();
 
-// const handleWatchVideo = (req, res) => {
-//   return res.send("Watch Video");
-// };
-
-// const handleEdit = (req, res) => {
-//   return res.send("Edit Video");
-// };
-
-videoRouter.route("/upload").get(getUpload).post(postUpload);
-videoRouter.route("/:id(\\d+)", watch);
-videoRouter.route("/:id(\\d+)/edit").get(getEdit).post(postEdit);
-// videoRouter.get("/:id(\\d+)/edit", getEdit);
-// videoRouter.post("/:id(\\d+)/edit", postEdit);
-videoRouter.get("/:id(\\d+)/delete", deleteVideo);
+videoRouter.route("/upload").get(getUplold).post(postUplold);
+videoRouter.route("/:id([0-9a-f]{24})").get(watch);
+videoRouter.route("/:id([0-9a-f]{24})/edit").get(getEdit).post(postEdit);
+videoRouter.get("/:id([0-9a-f]{24})/delete", deleteVideo);
 
 export default videoRouter;
