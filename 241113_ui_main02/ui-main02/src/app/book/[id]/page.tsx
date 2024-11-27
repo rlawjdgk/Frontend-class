@@ -5,6 +5,9 @@ import { notFound } from "next/navigation";
 // export const dynamicParams = false;
 
 //staic param 만드는 함수
+
+const Booktail = () => {};
+
 export const generateStaticParams = () => {
   return [{ id: "1" }, { id: "2" }, { id: "3" }];
 };
