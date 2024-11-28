@@ -1,0 +1,67 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul,
+li {
+  text-decoration: none;
+}
+
+#fullpage .section {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  color: #fff;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    .headerWrap {
+      img {
+        width: 120px;
+        height: 60px;
+        display: flex;
+        padding: 8px 10px;
+      }
+    }
+  }
+  .main {
+    img {
+      width: 100%;
+      height: 100vh;
+      object-fit: cover;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+  }
+}
+
+/* 섹션 1 */
+#fullpage .section:nth-child(1) {
+  border: 1px solid red;
+}
+
+/* 섹션 2 */
+#fullpage .section:nth-child(2) {
+  border: 1px solid red;
+}
+
+/* 섹션 3 */
+#fullpage .section:nth-child(3) {
+  border: 1px solid red;
+}
+#fullpage .section:nth-child(4) {
+  border: 1px solid red;
+}
