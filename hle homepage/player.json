@@ -1,0 +1,39 @@
+{
+  "players": [
+    {
+      "image": "./img/zeus.webp",
+      "nickname": "Zeus",
+      "name": "Choi Woo Je",
+      "age": "2004.01.31",
+      "position": "Top"
+    },
+    {
+      "image": "./img/peanut.webp",
+      "nickname": "Peanut",
+      "name": "Han Wang Ho",
+      "age": "1998.02.03",
+      "position": "Jungle"
+    },
+    {
+      "image": "./img/zeka.webp",
+      "nickname": "Zeka",
+      "name": "Kim Geon Woo",
+      "age": "2002.11.28",
+      "position": "MiD"
+    },
+    {
+      "image": "./img/viper.webp",
+      "nickname": "Viper",
+      "name": "Park Do Hyeon",
+      "age": "2000.10.19",
+      "position": "Bottom"
+    },
+    {
+      "image": "./img/delight.webp",
+      "nickname": "Delight",
+      "name": "Yu Hwan Jung",
+      "age": "2002.09.12",
+      "position": "Suppport"
+    }
+  ]
+}

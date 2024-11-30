@@ -10,6 +10,11 @@ li {
   text-decoration: none;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
 #fullpage .section {
   height: 100vh;
   display: flex;
@@ -21,6 +26,7 @@ li {
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
+  margin-top: 60px;
 }
 #fullpage .section header {
   position: fixed;
@@ -28,12 +34,25 @@ li {
   left: 0;
   width: 100%;
   z-index: 999;
+  background: #ed7103;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 #fullpage .section header .headerWrap img {
   width: 120px;
   height: 60px;
   display: flex;
   padding: 8px 10px;
+}
+#fullpage .section header ul {
+  display: flex;
+  padding-right: 20px;
+  gap: 10px;
+  font-size: 14px;
+}
+#fullpage .section header ul li {
+  display: flex;
 }
 #fullpage .section .main img {
   width: 100%;
@@ -56,8 +75,45 @@ li {
 }
 
 /* 섹션 3 */
-#fullpage .section:nth-child(3) {
-  border: 1px solid red;
+#fullpage .section:nth-child(3) h4 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 150px;
+  margin-bottom: 20px;
+}
+#fullpage .section:nth-child(3) #player-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+}
+#fullpage .section:nth-child(3) .player-card {
+  width: 200px;
+  height: 330px;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+#fullpage .section:nth-child(3) .player-card .player-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+#fullpage .section:nth-child(3) .player-card h3 {
+  margin: 10px 0;
+  color: #ed7103;
+}
+#fullpage .section:nth-child(3) .player-card p {
+  margin: 5px 0;
+  font-size: 14px;
+  color: #333;
 }
 
 #fullpage .section:nth-child(4) {

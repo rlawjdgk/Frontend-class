@@ -10,3 +10,27 @@ new fullpage("#fullpage", {
   fitToSection: true, // 섹션 크기에 맞춰서 자동으로 맞추기
   //   responsiveWidth: 1200, // 특정 화면 크기 이상에서만 fullPage.js 사용
 });
+
+fetch("./player.json")
+  .then((response) => response.json()) // JSON으로 변환
+  .then((data) => {
+    const playerList = document.getElementById("player-list");
+
+    // JSON 배열 순회
+    data.players.forEach((player) => {
+      // 각 플레이어 정보 HTML 생성
+      const playerDiv = document.createElement("div");
+      playerDiv.classList.add("player-card"); // player-card 클래스 추가
+
+      playerDiv.innerHTML = `
+        <img src="${player.image}" alt="${player.nickname}" class="player-image" />
+        <h3>${player.nickname}</h3>
+        <p>${player.name}</p>
+        <p>${player.age}</p>
+        <p>${player.position}</p>
+      `;
+
+      playerList.appendChild(playerDiv);
+    });
+  })
+  .catch((error) => console.error("Error loading JSON:", error));
