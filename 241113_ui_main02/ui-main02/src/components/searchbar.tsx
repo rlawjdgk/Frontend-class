@@ -6,16 +6,16 @@ import style from "./searchbar.module.css";
 const Searchbar = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const [search, setSearch] = useState("");
+  const [search, setSeach] = useState("");
 
   const q = searchParams.get("q");
 
   useEffect(() => {
-    setSearch(q || "");
+    setSeach(q || "");
   }, [q]);
 
   const onChangeSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearch(e.target.value);
+    setSeach(e.target.value);
   };
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -23,7 +23,6 @@ const Searchbar = () => {
     if (!search || q === search) return;
     router.push(`/search?q=${search}`);
   };
-
   return (
     <Suspense>
       <div>
