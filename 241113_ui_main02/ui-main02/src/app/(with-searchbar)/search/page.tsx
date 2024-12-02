@@ -3,6 +3,7 @@ import { BookData } from "@/types";
 import BookItem from "@/components/book-item";
 import delay from "@/util/delay";
 import { Metadata } from "next";
+
 // export const dynamic = "force-static";
 
 const SearchResult = async ({ q }: { q: string }) => {

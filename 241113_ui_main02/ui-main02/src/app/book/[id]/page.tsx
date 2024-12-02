@@ -82,14 +82,16 @@ export const generateMetadata = async ({
     `${process.env.NEXT_PUBLIC_API_SERVER_URL}/book/${id}`,
     { cache: "force-cache" }
   );
+
   if (!response.ok) {
     throw new Error(response.statusText);
   }
+
   const book: BookData = await response.json();
   return {
     title: `${book.title} - 한입북스`,
     description: `${book.description}`,
-    openGrapgh: {
+    openGraph: {
       title: `${book.title} - 한입북스`,
       description: `${book.description}`,
       images: [book.coverImgUrl],

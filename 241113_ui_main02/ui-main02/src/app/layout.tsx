@@ -19,7 +19,7 @@ const Footer = async () => {
 
   return (
     <footer>
-      <div>제작 @Jun</div>
+      <div>제작 @David</div>
       <div>{bookCount}개의 도서가 등록되어 있습니다.</div>
     </footer>
   );

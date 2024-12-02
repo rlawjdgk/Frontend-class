@@ -19,18 +19,35 @@ const RecoBooks = async () => {
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_API_SERVER_URL}/book/random`,
     {
-      next: {
-        revalidate: 3,
-      },
+      cache: "no-store",
     }
   );
-  if (!response.ok) {
-    return <div>오류가 발생했습니다...</div>;
-  }
+  // if (!response.ok) {
+  //   return <div>오류가 발생했습니다...</div>;
+  // }
   const recoBooks: BookData[] = await response.json();
   return (
     <div>
       {recoBooks.map((book) => (
+        <BookItem key={book.id} {...book} />
+      ))}
+    </div>
+  );
+};
+
+const AllBooks = async () => {
+  await delay(1500);
+  const response = await fetch(
+    `${process.env.NEXT_PUBLIC_API_SERVER_URL}/book`,
+    { cache: "no-store" }
+  );
+  // if (!response.ok) {
+  //   return <div>오류가 발생했습니다...</div>;
+  // }
+  const allBooks: BookData[] = await response.json();
+  return (
+    <div>
+      {allBooks.map((book) => (
         <BookItem key={book.id} {...book} />
       ))}
     </div>
@@ -45,25 +62,6 @@ export const metadata: Metadata = {
     description: "한입 북스에 등록된 도서를 만나보세요",
     images: ["/thumbnail.png"],
   },
-};
-
-const AllBooks = async () => {
-  await delay(1500);
-  const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_SERVER_URL}/book`,
-    { cache: "force-cache" }
-  );
-  if (!response.ok) {
-    return <div>오류가 발생했습니다...</div>;
-  }
-  const allBooks: BookData[] = await response.json();
-  return (
-    <div>
-      {allBooks.map((book) => (
-        <BookItem key={book.id} {...book} />
-      ))}
-    </div>
-  );
 };
 
 const Home = async () => {
