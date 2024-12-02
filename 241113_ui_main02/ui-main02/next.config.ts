@@ -9,6 +9,9 @@ const nextConfig: NextConfig = {
   images: {
     domains: ["shopping-phinf.pstatic.net"],
   },
+  env: {
+    API_URL: process.env.API_URL || "http://loaclhost:12345/api",
+  },
 };
 
 export default nextConfig;
