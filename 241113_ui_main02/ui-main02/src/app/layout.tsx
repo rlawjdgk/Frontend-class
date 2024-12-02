@@ -19,13 +19,19 @@ const Footer = async () => {
 
   return (
     <footer>
-      <div>제작 @David</div>
+      <div>제작 @Jun</div>
       <div>{bookCount}개의 도서가 등록되어 있습니다.</div>
     </footer>
   );
 };
 
-const Rootlayout = ({ children }: { children: ReactNode }) => {
+const Rootlayout = ({
+  children,
+  modal,
+}: {
+  children: ReactNode;
+  modal: ReactNode;
+}) => {
   return (
     <html lang="ko">
       <body>
@@ -36,6 +42,7 @@ const Rootlayout = ({ children }: { children: ReactNode }) => {
           <main>{children}</main>
           <Footer />
         </div>
+        {modal}
         <div id="modal-root"></div>
       </body>
     </html>

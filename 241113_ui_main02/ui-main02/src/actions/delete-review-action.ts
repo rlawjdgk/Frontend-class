@@ -1,5 +1,6 @@
 "use server";
 
+import { error } from "console";
 import { revalidatePath } from "next/cache";
 
 export const deleteReviewAction = async (_: any, formData: FormData) => {
@@ -20,7 +21,6 @@ export const deleteReviewAction = async (_: any, formData: FormData) => {
         method: "DELETE",
       }
     );
-
     if (!response.ok) {
       throw new Error(response.statusText);
     }
