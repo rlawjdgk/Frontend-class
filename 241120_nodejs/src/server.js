@@ -4,8 +4,8 @@ import rootRouter from "./routers/rootRouter";
 import userRouter from "./routers/userRouter";
 import videoRouter from "./routers/videoRouter";
 import session from "express-session";
-import { localMiddleWare } from "./middlewares";
 import MongoStore from "connect-mongo";
+import { localMiddleware } from "./middlewares";
 
 const app = express();
 const logger = morgan("dev");
@@ -20,14 +20,11 @@ app.use(
     secret: process.env.COOKIE_SECRET,
     resave: true,
     saveUninitialized: true,
-    cookie: {
-      maxAge: 20000,
-    },
     store: MongoStore.create({ mongoUrl: process.env.DB_URL }),
   })
 );
 
-app.use(localMiddleWare);
+app.use(localMiddleware);
 app.use("/", rootRouter);
 app.use("/users", userRouter);
 app.use("/videos", videoRouter);
