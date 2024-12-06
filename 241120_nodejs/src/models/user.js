@@ -8,13 +8,13 @@ const userSchema = new mongoose.Schema({
     unique: true,
   },
   avatarUrl: String,
-  snsType: {
+  socialOnly: {
     type: Boolean,
     default: false,
   },
   username: {
     type: String,
-    required: true,
+    // required: true,
     unique: true,
   },
   password: {

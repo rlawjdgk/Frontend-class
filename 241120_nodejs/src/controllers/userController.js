@@ -1,24 +1,27 @@
 import User from "../models/user";
 import bcrypt from "bcrypt";
-export const getJoin = (req, res) =>
-  res.render("join", { pageTitle: "Create Account" });
+
+export const getJoin = (req, res) => res.render("join", { pageTitle: "Join" });
+
 export const postJoin = async (req, res) => {
-  const { email, username, password, passwordConfirm, name, location } =
-    req.body;
-  const exists = await User.exists({ $or: [{ username }, { email }] });
+  const { email, username, password, password1, name, location } = req.body;
   const pageTitle = "Join";
-  if (exists) {
-    return res.render("join", {
-      pageTitle,
-      errorMessage: "This username/email has already been taken.",
-    });
-  }
-  if (password !== passwordConfirm) {
+
+  if (password !== password1) {
     return res.status(400).render("join", {
       pageTitle,
-      errorMessage: "Passwords doesn't match.",
+      errorMessage: "Password confirmation does not match",
     });
   }
+
+  const exists = await User.exists({ $or: [{ username }, { email }] });
+  if (exists) {
+    return res.status(400).render("join", {
+      pageTitle,
+      errorMessage: "This username/email is already Taken.",
+    });
+  }
+
   try {
     await User.create({
       email,
@@ -29,9 +32,86 @@ export const postJoin = async (req, res) => {
     });
     return res.redirect("/login");
   } catch (error) {
-    return res
-      .status(400)
-      .render("join", { pageTitle, errorMessage: error._message });
+    return res.status(400).render("join", {
+      pageTitle,
+      errorMessage: error._message,
+    });
+  }
+};
+export const startGithubLogin = (req, res) => {
+  const baseUrl = "https://github.com/login/oauth/authorize";
+  const config = {
+    client_id: process.env.GH_CLIENT,
+    allow_signup: false,
+    scope: "read:user user:email",
+  };
+  const params = new URLSearchParams(config).toString();
+  const finalUrl = `${baseUrl}?${params}`;
+  return res.redirect(finalUrl);
+};
+
+export const finishGithubLogin = async (req, res) => {
+  const baseUrl = "https://github.com/login/oauth/access_token";
+  const config = {
+    client_id: process.env.GH_CLIENT,
+    client_secret: process.env.GH_SECRET,
+    code: req.query.code,
+  };
+  const params = new URLSearchParams(config).toString();
+  const finalUrl = `${baseUrl}?${params}`;
+  const tonkenRequest = await (
+    await fetch(finalUrl, {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+      },
+    })
+  ).json();
+  if ("access_token" in tonkenRequest) {
+    const { access_token } = tonkenRequest;
+    const apiUrl = " https://api.github.com";
+    const userData = await (
+      await fetch(`${apiUrl}/user`, {
+        headers: {
+          Authorization: `token ${access_token}`,
+        },
+      })
+    ).json();
+    const emailData = await (
+      await fetch(`${apiUrl}/user/emails`, {
+        headers: {
+          Authorization: `token ${access_token}`,
+        },
+      })
+    ).json();
+    const emailObj = emailData.find(
+      (email) => email.primary === true && email.verified === true
+    );
+    if (!emailObj) {
+      return res.redirect("/login");
+    }
+    const existingUser = await User.findOne({ email: emailObj.email });
+
+    if (existingUser) {
+      req.session.loggedIn = true;
+      req.session.user = existingUser;
+      return res.redirect("/");
+    } else {
+      const user = await User.create({
+        email: emailObj.email,
+        avatarUrl: userData.avatar_url,
+        socialOnly: true,
+        username: userData.login,
+        password: "",
+        name: userData.name,
+        location: userData.location,
+      });
+      req.session.loggedIn = true;
+      req.session.user = user;
+      return res.redirect("/login");
+    }
+  } else {
+    return res.redirect("/login");
   }
 };
 export const getEdit = (req, res) => {
@@ -43,8 +123,10 @@ export const postEdit = async (req, res) => {
       user: { _id, email: sessionEmail, username: sessionUsername },
     },
     body: { name, email, username, location },
+    file: { path },
   } = req;
 
+  console.log(path);
   const usernameExists =
     username !== sessionUsername ? await User.exists({ username }) : undefined;
 
@@ -61,120 +143,88 @@ export const postEdit = async (req, res) => {
     });
   }
 
-  const updatedUser = await User.findByIdAndUpdate("edit-profile", {
-    pageTitle: "Edit Profile",
-  });
-  (req.session.user = {
-    ...req.session.user,
-    name,
-    email,
-    username,
-    location,
-  }),
-    { new: true };
+  const updatedUser = await User.findByIdAndUpdate(
+    _id,
+    {
+      avatarUrl: file ? file.path.replace(/\\/g, "/") : avatarUrl,
+      name,
+      email,
+      username,
+      location,
+    },
+    { new: true }
+  );
+
+  req.session.user = updatedUser;
+  return res.redirect("/users/edit");
 };
 
 export const getLogin = (req, res) =>
-  res.render("login", { pageTitle: "Login" });
+  res.render("login", {
+    pageTitle: "Login",
+  });
+
 export const postLogin = async (req, res) => {
-  const pageTitle = "Login";
   const { username, password } = req.body;
-  console.log(req.body);
-  const userExists = await User.findOne({ username, socialOnly: false });
-  if (!userExists) {
+  const pageTitle = "Login";
+  const user = await User.findOne({ username, socialOnly: false });
+  if (!user) {
     return res.status(400).render("login", {
       pageTitle,
-      errorMessage: "An account with this username does not exist.",
+      errorMessage: "An account with this username does not exits",
     });
   }
-  const ok = await bcrypt.compare(password, userExists.password);
+  const ok = await bcrypt.compare(password, user.password);
   if (!ok) {
-    return res.status(404).render("login", {
+    return res.status(400).render("login", {
       pageTitle,
-      errorMessage: "Invalid Password.",
+      errorMessage: "Wrong Password",
     });
   }
-  console.log("User Logged");
   req.session.loggedIn = true;
-  req.session.loggedUser = userExists;
-  res.redirect("/");
+  req.session.user = user;
+  return res.redirect("/");
 };
+
 export const logout = (req, res) => {
   req.session.destroy();
   return res.redirect("/");
 };
-export const triggerGithubLogin = (req, res) => {
-  const config = {
-    client_id: process.env.GH_CLIENT,
-    allow_signup: "false",
-    scope: "read:user user:email",
-  };
-  const baseUrl = "https://github.com/login/oauth/authorize";
-  const params = new URLSearchParams(config).toString();
-  const finalURL = `${baseUrl}?${params}`;
-  res.redirect(finalURL);
-};
-export const callbackGithub = async (req, res) => {
-  const baseUrl = "https://github.com/login/oauth/access_token";
-  const config = {
-    client_id: process.env.GH_CLIENT,
-    client_secret: process.env.GH_SECRET,
-    code: req.query.code,
-  };
-  const params = new URLSearchParams(config).toString();
-  const finalURL = `${baseUrl}?${params}`;
-  const tokenReq = await (
-    await fetch(finalURL, {
-      method: "post",
-      headers: {
-        Accept: "application/json",
-      },
-    })
-  ).json();
-  console.log(tokenReq);
-  if ("access_token" in tokenReq) {
-    const { access_token } = tokenReq;
-    const apiUrl = "https://api.github.com";
-    const userReq = await (
-      await fetch(`${apiUrl}/user`, {
-        headers: {
-          Authorization: `Bearer ${access_token}`,
-        },
-      })
-    ).json();
-    const emailReq = await (
-      await fetch(`${apiUrl}/user/emails`, {
-        headers: {
-          Authorization: `Bearer ${access_token}`,
-        },
-      })
-    ).json();
-    const userMail = emailReq.find((email) => email.primary && email.verified);
-    if (!userMail) return res.redirect("/login");
-    const existingUser = await User.findOne({ email: userMail.email });
-    console.log(userReq);
-    if (existingUser) {
-      req.session.loggedIn = true;
-      req.session.loggedUser = existingUser;
-      console.log(req.session);
-      return res.redirect("/");
-    } else {
-      const user = await User.create({
-        name: userReq.name ?? userReq.login,
-        avatarUrl: userReq.avatar_url,
-        username: userReq.username ?? userReq.login,
-        email: userReq.email ?? userMail.email,
-        snsType: true,
-        password: "",
-        location: userReq.location ?? "",
-      });
-
-      req.session.loggedIn = true;
-      req.session.loggedUser = user;
-      return res.redirect("/");
-    }
-  } else {
-    return res.redirect("/login");
+export const getChangePassword = (req, res) => {
+  if (req.session.user.socialOnly === true) {
+    return res.redirect("/");
   }
+  return res.render("users/change-password", {
+    pageTitle: "Change Password",
+  });
 };
-export const check = (req, res) => {};
+
+export const postChangePassword = async (req, res) => {
+  const {
+    session: {
+      user: { _id },
+    },
+    body: { oldPassword, newPassword, newPasswordConfirmation },
+  } = req;
+  const user = await User.findById(_id);
+  const ok = await bcrypt.compare(oldPassword, password);
+  if (!ok) {
+    return res.status(400).render("users/change-password", {
+      pageTitle: "Change Password",
+      errorMessage: "The Current Password is incorrect",
+    });
+  }
+
+  if (newPassword !== newPasswordConfirmation) {
+    return res.render("users/change-password", {
+      pageTitle: "Change Password",
+      errorMessage: "The Password does not match the confirmation",
+    });
+  }
+  user.password = newPassword;
+  await user.save();
+  req.session.user.password = user.password;
+  return res.redirect("/users/logout");
+};
+
+export const see = (req, res) => res.send("see");
